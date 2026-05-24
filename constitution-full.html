@@ -6,47 +6,284 @@
   <title>Полная Конституция — Чиллград</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .spinner { animation: spin 8s linear infinite; display: inline-block; font-size: 60px; }
-    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
-    .floater { animation: float 3s ease-in-out infinite; }
-    .progress-bar {
-      width: 100%; max-width: 400px; height: 6px;
-      background: rgba(255,255,255,0.06); border-radius: 100px;
-      overflow: hidden; margin: 0 auto;
+    /* READING PROGRESS */
+    .read-progress {
+      position: fixed; top: 0; left: 0; z-index: 200;
+      height: 3px; width: 0%;
+      background: linear-gradient(90deg, var(--teal), var(--purple-light));
+      transition: width 0.1s linear;
     }
-    .progress-fill {
-      height: 100%; width: 23%; border-radius: 100px;
-      background: linear-gradient(90deg, var(--purple), var(--teal));
-      animation: progress 4s ease-in-out infinite alternate;
-    }
-    @keyframes progress { from { width: 18%; } to { width: 28%; } }
 
-    .wip-log {
-      max-width: 560px;
-      margin: 40px auto 0;
-      background: #02060f;
-      border: 1px solid var(--border-mid);
-      border-radius: var(--radius);
-      overflow: hidden;
-      text-align: left;
+    /* LAYOUT */
+    .doc-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 48px;
+      align-items: start;
+      padding: 48px 0 80px;
     }
-    .wip-log-bar {
-      background: #08101f; padding: 10px 16px;
-      display: flex; align-items: center; gap: 8px;
+
+    /* SIDEBAR TOC */
+    .toc-wrap {
+      position: sticky;
+      top: 72px;
+      max-height: calc(100vh - 90px);
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border-mid) transparent;
+    }
+    .toc-wrap::-webkit-scrollbar { width: 4px; }
+    .toc-wrap::-webkit-scrollbar-track { background: transparent; }
+    .toc-wrap::-webkit-scrollbar-thumb { background: var(--border-mid); border-radius: 4px; }
+
+    .toc-label {
+      font-family: var(--font-mono); font-size: 10px; color: var(--teal);
+      letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 14px;
+    }
+    .toc-list { list-style: none; padding: 0; }
+    .toc-item { margin-bottom: 2px; }
+    .toc-link {
+      display: block; padding: 7px 12px; border-radius: 7px;
+      text-decoration: none; font-family: var(--font-ui); font-size: 12.5px;
+      color: var(--text-muted); transition: var(--transition);
+      border-left: 2px solid transparent; line-height: 1.4;
+    }
+    .toc-link:hover { color: var(--text-secondary); background: rgba(255,255,255,0.03); border-left-color: var(--border-mid); }
+    .toc-link.active { color: var(--teal); background: rgba(0,212,170,0.07); border-left-color: var(--teal); }
+    .toc-link.chapter { font-weight: 700; color: var(--text-secondary); font-size: 12px; }
+    .toc-link.chapter:hover, .toc-link.chapter.active { color: var(--teal); }
+    .toc-spacer { height: 10px; }
+    .toc-divider { height: 1px; background: var(--border); margin: 10px 4px; }
+
+    /* DOCUMENT CONTENT */
+    .doc-content { min-width: 0; }
+
+    /* PREAMBLE */
+    .preamble-block {
+      background: rgba(124,92,247,0.06);
+      border: 1px solid rgba(124,92,247,0.2);
+      border-radius: var(--radius);
+      padding: 36px 40px;
+      margin-bottom: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .preamble-block::before {
+      content: '§';
+      position: absolute; right: 32px; top: 16px;
+      font-family: var(--font-display); font-size: 120px;
+      color: rgba(124,92,247,0.06); line-height: 1;
+      pointer-events: none;
+    }
+    .preamble-title {
+      font-family: var(--font-mono); font-size: 11px; color: var(--purple-light);
+      letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px;
+    }
+    .preamble-text {
+      font-family: var(--font-body); font-size: 15px; color: var(--text-secondary);
+      line-height: 1.9;
+    }
+    .preamble-principle {
+      display: flex; gap: 16px; padding: 10px 0;
+      font-family: var(--font-ui); font-size: 14px; color: var(--text-secondary);
+      border-bottom: 1px solid rgba(124,92,247,0.1);
+      align-items: flex-start;
+    }
+    .preamble-principle:last-child { border-bottom: none; }
+    .preamble-num {
+      font-family: var(--font-mono); font-size: 11px; color: var(--purple-light);
+      min-width: 28px; padding-top: 2px; font-weight: 600;
+    }
+
+    /* CHAPTER HEADER */
+    .chapter-block { margin-bottom: 56px; scroll-margin-top: 90px; }
+    .chapter-header {
+      display: flex; align-items: center; gap: 16px;
+      padding: 20px 28px; border-radius: var(--radius);
+      margin-bottom: 28px;
+      background: rgba(0,212,170,0.04);
+      border: 1px solid rgba(0,212,170,0.15);
+      position: relative; overflow: hidden;
+    }
+    .chapter-header::before {
+      content: attr(data-num);
+      position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
+      font-family: var(--font-display); font-size: 56px;
+      color: rgba(0,212,170,0.06); line-height: 1;
+      pointer-events: none;
+    }
+    .chapter-num-badge {
+      background: rgba(0,212,170,0.12); border: 1px solid rgba(0,212,170,0.3);
+      border-radius: 8px; padding: 6px 12px;
+      font-family: var(--font-mono); font-size: 11px; color: var(--teal);
+      letter-spacing: 1.5px; white-space: nowrap;
+    }
+    .chapter-title-text {
+      font-family: var(--font-display); font-size: clamp(16px,2vw,22px);
+      color: var(--text-primary);
+    }
+
+    /* ARTICLE */
+    .article-block {
+      margin-bottom: 32px; padding-bottom: 32px;
+      border-bottom: 1px solid rgba(20,36,68,0.7);
+      scroll-margin-top: 90px;
+    }
+    .article-block:last-child { border-bottom: none; }
+    .article-header {
+      display: flex; align-items: center; gap: 14px; margin-bottom: 16px;
+    }
+    .article-num-badge {
+      font-family: var(--font-mono); font-size: 11px;
+      background: rgba(0,212,170,0.08); border: 1px solid rgba(0,212,170,0.2);
+      border-radius: 6px; padding: 4px 10px; color: var(--teal);
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .article-title-text {
+      font-family: var(--font-ui); font-size: 17px; font-weight: 700;
+      color: var(--text-primary);
+    }
+    .article-body {
+      padding-left: 20px;
+      border-left: 2px solid rgba(0,212,170,0.15);
+    }
+    .article-body p {
+      color: var(--text-secondary); font-size: 14.5px; line-height: 1.85;
+      margin-bottom: 10px;
+    }
+    .article-body p:last-child { margin-bottom: 0; }
+    .article-body ul { list-style: none; padding: 0; }
+    .article-body li {
+      padding: 5px 0 5px 24px; position: relative;
+      color: var(--text-secondary); font-size: 14.5px; line-height: 1.8;
+    }
+    .article-body li::before {
+      content: attr(data-marker);
+      position: absolute; left: 0; color: var(--teal);
+      font-family: var(--font-mono); font-size: 12px;
+    }
+    .article-body strong { color: var(--text-primary); }
+    .article-body .hl { color: var(--teal); font-weight: 600; }
+    .article-body .hl-red { color: var(--danger); font-weight: 600; }
+    .article-body .hl-purple { color: var(--purple-light); font-weight: 600; }
+
+    /* TAX TABLE */
+    .tax-table-wrap { margin: 16px 0; overflow: hidden; border-radius: var(--radius); border: 1px solid var(--border); }
+    .tax-section-head {
+      padding: 10px 16px; font-family: var(--font-ui); font-size: 11px;
+      font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
+      background: rgba(255,255,255,0.03); color: var(--text-muted);
       border-bottom: 1px solid var(--border);
     }
-    .wip-log-body { padding: 18px 20px; }
-    .log-line { font-family: var(--font-mono); font-size: 12px; line-height: 2.1; }
-    .log-ok   { color: #28c840; }
-    .log-pend { color: var(--warning); }
-    .log-wip  { color: var(--purple-light); }
-    .log-lock { color: var(--text-muted); }
-    .cursor { animation: blink 1.1s step-start infinite; }
-    @keyframes blink { 50% { opacity: 0; } }
+    .tax-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 16px; border-bottom: 1px solid rgba(20,36,68,0.5);
+      gap: 16px;
+    }
+    .tax-row:last-child { border-bottom: none; }
+    .tax-row:hover { background: rgba(255,255,255,0.02); }
+    .tax-desc { font-family: var(--font-ui); font-size: 13px; color: var(--text-secondary); flex: 1; }
+    .tax-amount {
+      font-family: var(--font-mono); font-size: 12px; color: var(--teal);
+      white-space: nowrap; font-weight: 600;
+    }
+    .tax-amount.danger { color: var(--danger); }
+    .tax-amount.warning { color: var(--warning); }
+
+    /* MINISTRY CARDS */
+    .ministry-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin-top: 12px; }
+    .ministry-card {
+      background: rgba(8,15,32,0.6); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 16px;
+      transition: var(--transition);
+    }
+    .ministry-card:hover { border-color: var(--border-mid); }
+    .ministry-abbr {
+      font-family: var(--font-mono); font-size: 10px; color: var(--teal);
+      letter-spacing: 2px; margin-bottom: 6px; text-transform: uppercase;
+    }
+    .ministry-name {
+      font-family: var(--font-ui); font-size: 13px; font-weight: 700;
+      color: var(--text-primary); margin-bottom: 6px; line-height: 1.3;
+    }
+    .ministry-scope { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+    .ministry-card.secret { border-color: rgba(255,69,69,0.2); }
+    .ministry-card.secret .ministry-abbr { color: var(--danger); }
+
+    /* IMMUTABLE CORE */
+    .immutable-block {
+      background: rgba(255,69,69,0.04);
+      border: 1px solid rgba(255,69,69,0.2);
+      border-radius: var(--radius); padding: 20px 24px; margin: 12px 0;
+    }
+    .immutable-title {
+      font-family: var(--font-mono); font-size: 10px; color: var(--danger);
+      letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px;
+    }
+    .immutable-item {
+      display: flex; gap: 12px; padding: 8px 0;
+      border-bottom: 1px solid rgba(255,69,69,0.1);
+      font-size: 13.5px; color: var(--text-secondary); line-height: 1.7;
+    }
+    .immutable-item:last-child { border-bottom: none; }
+    .immutable-lock { color: var(--danger); flex-shrink: 0; }
+
+    /* CLOSING QUOTE */
+    .closing-quote {
+      text-align: center; padding: 48px 32px;
+      background: rgba(0,212,170,0.03); border: 1px solid rgba(0,212,170,0.12);
+      border-radius: var(--radius); margin-top: 32px;
+    }
+    .closing-main {
+      font-family: var(--font-display); font-size: clamp(18px,2.5vw,26px);
+      color: var(--text-primary); margin-bottom: 20px; line-height: 1.5;
+    }
+    .closing-sub {
+      font-family: var(--font-ui); font-size: 16px; color: var(--text-secondary);
+      font-style: italic; line-height: 1.9;
+    }
+    .closing-final {
+      font-family: var(--font-mono); font-size: 14px; color: var(--teal);
+      margin-top: 20px; letter-spacing: 1px;
+    }
+
+    /* SIGNATURES */
+    .sig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; }
+    .sig-card {
+      background: rgba(0,212,170,0.04); border: 1px solid rgba(0,212,170,0.18);
+      border-radius: var(--radius); padding: 28px;
+    }
+    .sig-role { font-family: var(--font-ui); font-size: 12px; color: var(--text-muted); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
+    .sig-name { font-family: var(--font-display); font-size: 20px; color: var(--text-primary); margin-bottom: 4px; }
+    .sig-line { border-bottom: 1px dashed rgba(0,212,170,0.2); margin: 14px 0; }
+    .sig-seal { text-align: center; margin-top: 10px; }
+    .seal-circle {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 80px; height: 80px; border-radius: 50%;
+      border: 2px dashed rgba(0,212,170,0.25);
+      font-size: 28px;
+      background: rgba(0,212,170,0.03);
+    }
+    .seal-text { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); margin-top: 8px; letter-spacing: 1px; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .doc-layout { grid-template-columns: 1fr; gap: 0; }
+      .toc-wrap { position: static; max-height: none; margin-bottom: 32px; }
+      .toc-list { display: flex; flex-wrap: wrap; gap: 4px; }
+      .toc-item { margin-bottom: 0; }
+      .toc-link { padding: 5px 10px; font-size: 11px; border-left: none; border: 1px solid var(--border); }
+      .toc-link.active { border-color: var(--teal); }
+      .toc-divider, .toc-spacer { display: none; }
+      .ministry-grid { grid-template-columns: 1fr; }
+      .sig-grid { grid-template-columns: 1fr; }
+      .preamble-block { padding: 24px; }
+      .chapter-header { padding: 16px 20px; }
+    }
   </style>
 </head>
 <body>
+<div class="read-progress" id="readProgress"></div>
 
 <nav class="nav">
   <div class="nav-inner">
@@ -65,78 +302,697 @@
   </div>
 </nav>
 
-<!-- Docs nav -->
-<section style="padding:24px 0 0">
+<div style="padding:20px 0 0">
   <div class="container">
     <div class="docs-nav">
       <a href="constitution.html" class="docs-nav-link">📋 Открытая редакция</a>
       <a href="constitution-full.html" class="docs-nav-link active">📁 Полная редакция</a>
     </div>
   </div>
-</section>
+</div>
 
-<!-- WIP SECTION -->
-<section class="section">
+<!-- HERO -->
+<div style="padding:0 0 0">
   <div class="container">
-    <div class="wdev-center" style="padding:80px 0">
-
-      <div class="floater" style="margin-bottom:24px">
-        <div class="spinner">⚙️</div>
+    <div style="padding:36px 0 8px;text-align:center;border-bottom:1px solid var(--border);margin-bottom:0">
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--teal);letter-spacing:3px;margin-bottom:16px;text-transform:uppercase">Суверенная IT-морская Республика Чиллград</div>
+      <h1 style="font-family:var(--font-display);font-size:clamp(28px,5vw,52px);background:linear-gradient(135deg,var(--teal) 0%,#4dffda 40%,var(--purple-light) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px">Великая Конституция</h1>
+      <p style="font-family:var(--font-ui);font-size:15px;color:var(--text-secondary);margin-bottom:20px">Полная редакция · Принята 12 января · День Первого Дрейфа</p>
+      <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:32px">
+        <span class="badge badge-success">Действующая</span>
+        <span class="badge badge-purple">10 глав · 39 статей</span>
+        <span class="badge badge-neutral">Открытый гриф</span>
       </div>
-
-      <div class="badge badge-warning" style="margin-bottom:28px;font-size:12px;padding:6px 18px">
-        В РАЗРАБОТКЕ
-      </div>
-
-      <h1 class="wdev-title" style="font-size:clamp(30px,5vw,48px)">Полная редакция<br>Конституции</h1>
-      <p class="wdev-desc">Диванный Совет Чиллграда ведёт работу над расширенной версией документа. Все подпункты, технические регламенты, засекреченные приложения и отдельные тома находятся на стадии согласования.</p>
-
-      <div class="progress-bar" style="margin-bottom:12px">
-        <div class="progress-fill"></div>
-      </div>
-      <p class="text-muted" style="font-family:var(--font-mono);font-size:11px;letter-spacing:1px">ПРОГРЕСС: ~23% · СТАТУС: DAEMON_MODE</p>
-
-      <!-- Mock log -->
-      <div class="wip-log">
-        <div class="wip-log-bar">
-          <div class="terminal-dot"></div>
-          <div class="terminal-dot"></div>
-          <div class="terminal-dot"></div>
-          <span style="font-family:var(--font-mono);font-size:11px;color:var(--text-muted);margin-left:8px">constitution-full.sh — АФК Сити · Диванный Совет</span>
-        </div>
-        <div class="wip-log-body">
-          <div class="log-line log-ok">[✓] Преамбула ................... готово</div>
-          <div class="log-line log-ok">[✓] Глава I: Основной принцип ... готово</div>
-          <div class="log-line log-ok">[✓] Глава II: Устройство ......... готово</div>
-          <div class="log-line log-ok">[✓] Глава III: Нейтралитет ....... готово</div>
-          <div class="log-line log-pend">[~] Глава IV: Права граждан ...... дописывается</div>
-          <div class="log-line log-pend">[~] Глава V: Экономика ........... согласование</div>
-          <div class="log-line log-wip">[·] Глава VI: Оборона ............ в процессе</div>
-          <div class="log-line log-wip">[·] Глава VII: Цифровой суверенитет .. в процессе</div>
-          <div class="log-line log-lock">[🔒] Приложение A: Протокол «Як ебнет» .... засекречено</div>
-          <div class="log-line log-lock">[🔒] Приложение Б: Том N2 ............ зашифрован</div>
-          <div class="log-line log-lock">[🔒] Приложение В: Координаты узла «Гамма» . не раскрывается даже Диванному Совету</div>
-          <div class="log-line" style="color:var(--text-muted)">[…] Ожидание завершения сессии Диванного Совета... <span class="cursor">_</span></div>
-        </div>
-      </div>
-
-      <!-- Joke note -->
-      <div style="margin-top:40px;max-width:480px;margin-left:auto;margin-right:auto;padding:20px 24px;background:rgba(0,212,170,0.04);border:1px solid rgba(0,212,170,0.15);border-radius:var(--radius)">
-        <p style="font-family:var(--font-ui);font-size:13px;color:var(--text-secondary);line-height:1.8;font-style:italic">
-          Диванный Совет работает в штатном режиме. Документ будет готов, когда будет готов. Суета вокруг сроков карается автоматическим штрафом.
-        </p>
-        <div style="display:flex;align-items:center;gap:10px;margin-top:14px">
-          <div style="width:28px;height:28px;background:linear-gradient(135deg,var(--teal),var(--purple));border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0">Ч</div>
-          <span style="font-family:var(--font-mono);font-size:11px;color:var(--text-muted)">Пресс-служба Чиллграда · IDLE режим</span>
-        </div>
-      </div>
-
-      <div style="margin-top:36px">
-        <a href="constitution.html" class="btn btn-outline">← Вернуться к открытой редакции</a>
+      <div style="max-width:520px;margin:0 auto 0;padding:16px 20px;background:rgba(0,212,170,0.04);border:1px solid rgba(0,212,170,0.15);border-radius:var(--radius-sm)">
+        <p style="font-family:var(--font-mono);font-size:11px;color:var(--text-muted);letter-spacing:1px">МЫ НЕ ТОРОПИЛИСЬ. МЫ НАПИСАЛИ ХОРОШО.</p>
       </div>
     </div>
   </div>
-</section>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="container">
+  <div class="doc-layout">
+
+    <!-- SIDEBAR TOC -->
+    <aside>
+      <div class="toc-wrap">
+        <div class="toc-label">// Содержание</div>
+        <ul class="toc-list">
+          <li class="toc-item"><a href="#preamble" class="toc-link chapter">Преамбула</a></li>
+          <li class="toc-spacer"></li>
+          <li class="toc-divider"></li>
+          <li class="toc-item"><a href="#ch1" class="toc-link chapter">Глава I. Основы строя</a></li>
+          <li class="toc-item"><a href="#st1" class="toc-link">Ст. 1 — Государство</a></li>
+          <li class="toc-item"><a href="#st2" class="toc-link">Ст. 2 — Основной принцип</a></li>
+          <li class="toc-item"><a href="#st3" class="toc-link">Ст. 3 — Столица</a></li>
+          <li class="toc-item"><a href="#st4" class="toc-link">Ст. 4 — Язык</a></li>
+          <li class="toc-item"><a href="#st5" class="toc-link">Ст. 5 — Символы</a></li>
+          <li class="toc-item"><a href="#st6" class="toc-link">Ст. 6 — Нейтралитет</a></li>
+          <li class="toc-spacer"></li>
+          <li class="toc-item"><a href="#ch2" class="toc-link chapter">Глава II. Права граждан</a></li>
+          <li class="toc-item"><a href="#st7" class="toc-link">Ст. 7 — Основные права</a></li>
+          <li class="toc-item"><a href="#st8" class="toc-link">Ст. 8 — Несогласие</a></li>
+          <li class="toc-item"><a href="#st9" class="toc-link">Ст. 9 — Ограничения</a></li>
+          <li class="toc-item"><a href="#st10" class="toc-link">Ст. 10 — Обязанности</a></li>
+          <li class="toc-spacer"></li>
+          <li class="toc-item"><a href="#ch3" class="toc-link chapter">Глава III. Устройство</a></li>
+          <li class="toc-item"><a href="#st11" class="toc-link">Ст. 11–16 — Власть</a></li>
+          <li class="toc-spacer"></li>
+          <li class="toc-item"><a href="#ch4" class="toc-link chapter">Глава IV. Экономика</a></li>
+          <li class="toc-item"><a href="#st19" class="toc-link">Ст. 19 — Налоги</a></li>
+          <li class="toc-spacer"></li>
+          <li class="toc-item"><a href="#ch5" class="toc-link chapter">Глава V. Оборона</a></li>
+          <li class="toc-spacer"></li>
+          <li class="toc-item"><a href="#ch6" class="toc-link chapter">Глава VI. Внешняя политика</a></li>
+          <li class="toc-spacer"></li>
+          <li class="toc-item"><a href="#ch7" class="toc-link chapter">Глава VII. Гражданство</a></li>
+          <li class="toc-spacer"></li>
+          <li class="toc-item"><a href="#ch8" class="toc-link chapter">Глава VIII. ЧП</a></li>
+          <li class="toc-spacer"></li>
+          <li class="toc-item"><a href="#ch9" class="toc-link chapter">Глава IX. Поправки</a></li>
+          <li class="toc-spacer"></li>
+          <li class="toc-item"><a href="#ch10" class="toc-link chapter">Глава X. Финал</a></li>
+          <li class="toc-spacer"></li>
+          <li class="toc-item"><a href="#signatures" class="toc-link chapter">Подписи</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- DOCUMENT BODY -->
+    <main class="doc-content">
+
+      <!-- PREAMBLE -->
+      <div id="preamble" class="chapter-block">
+        <div class="preamble-block">
+          <div class="preamble-title">Преамбула</div>
+          <div class="preamble-text">
+            <p style="margin-bottom:20px">Мы, народ Суверенной IT-морской Республики Чиллград, осознавая свою коллективную усталость от суеты, шума, ненужных конфликтов и утренних звонков без предупреждения, собравшись единожды — что само по себе событие — и проголосовав горизонтально, с пледами и чаем,</p>
+            <p style="margin-bottom:24px">торжественно учреждаем настоящую Конституцию как высший закон нашего государства.</p>
+            <p style="font-family:var(--font-ui);font-size:13px;color:var(--text-muted);margin-bottom:16px;letter-spacing:1px;text-transform:uppercase">Мы исходим из следующих истин, которые считаем самоочевидными:</p>
+          </div>
+          <div>
+            <div class="preamble-principle"><span class="preamble-num">I.</span><span>Каждый человек имеет право на тишину.</span></div>
+            <div class="preamble-principle"><span class="preamble-num">II.</span><span>Государство существует для людей, а не люди для государства. Если государство мешает — оно работает неправильно.</span></div>
+            <div class="preamble-principle"><span class="preamble-num">III.</span><span>Нейтралитет — это не слабость. Это осознанный выбор тех, кто достаточно умён, чтобы не лезть в чужие проблемы.</span></div>
+            <div class="preamble-principle"><span class="preamble-num">IV.</span><span>Автоматизация существует, чтобы люди могли отдыхать. Если автоматизация заставляет людей работать больше — это не автоматизация, а издевательство.</span></div>
+            <div class="preamble-principle"><span class="preamble-num">V.</span><span>Безопасность не требует агрессии. Она требует продуманности.</span></div>
+            <div class="preamble-principle"><span class="preamble-num">VI.</span><span>Никто не трогает нас — мы не трогаем никого. Кто тронул — сам виноват.</span></div>
+          </div>
+          <p class="preamble-text" style="margin-top:20px">На основании этих принципов мы принимаем настоящую Конституцию и обязуемся её соблюдать. Все. Включая правительство. <strong style="color:var(--purple-light)">Особенно правительство.</strong></p>
+        </div>
+      </div>
+
+      <!-- CHAPTER I -->
+      <div id="ch1" class="chapter-block">
+        <div class="chapter-header" data-num="I">
+          <span class="chapter-num-badge">ГЛАВА I</span>
+          <span class="chapter-title-text">Основы государственного строя</span>
+        </div>
+
+        <div id="st1" class="article-block">
+          <div class="article-header">
+            <span class="article-num-badge">Статья 1</span>
+            <span class="article-title-text">Государство</span>
+          </div>
+          <div class="article-body">
+            <p>Чиллград является суверенным, демократическим, нейтральным и технологически независимым государством.</p>
+            <ul>
+              <li data-marker="—">Официальное название: <strong>Суверенная IT-морская Республика Чиллград</strong></li>
+              <li data-marker="—">Краткое: <strong>Чиллград</strong></li>
+              <li data-marker="—">Международное обозначение: <strong>ChillGrad / STL</strong> (по валюте)</li>
+            </ul>
+            <p style="margin-top:10px">Чиллград является республикой диванного типа. Форма правления обеспечивает максимальную автономию граждан при минимальном вмешательстве государства.</p>
+            <p style="margin-top:10px;font-family:var(--font-ui);font-size:13px;color:var(--text-muted)">Суверенитет распространяется на: сухопутную территорию архипелага · территориальные воды 24 морских мили · воздушное пространство · подземные объекты · орбитальный модуль AFK-1 · посольства за рубежом.</p>
+          </div>
+        </div>
+
+        <div id="st2" class="article-block">
+          <div class="article-header">
+            <span class="article-num-badge">Статья 2</span>
+            <span class="article-title-text">Основной принцип</span>
+          </div>
+          <div class="article-body">
+            <div style="text-align:center;padding:20px;background:rgba(0,212,170,0.06);border:1px solid rgba(0,212,170,0.2);border-radius:var(--radius-sm);margin-bottom:14px">
+              <div style="font-family:var(--font-display);font-size:22px;color:var(--teal)">«НЕ ТРОГАЙ — И ВСЕМ ХОРОШО»</div>
+            </div>
+            <p>Данный принцип является не просто лозунгом, а <strong>действующей нормой права</strong>. Любой закон, указ или действие, противоречащее данному принципу, подлежит отмене как неконституционное.</p>
+          </div>
+        </div>
+
+        <div id="st3" class="article-block">
+          <div class="article-header">
+            <span class="article-num-badge">Статья 3</span>
+            <span class="article-title-text">Столица и административные центры</span>
+          </div>
+          <div class="article-body">
+            <ul>
+              <li data-marker="—">Столица: <strong>АФК Сити (AFK City)</strong></li>
+              <li data-marker="—">Центральный государственный узел: <strong>Хаб «Корень» (/)</strong> — подземный объект под АФК Сити, daemon mode</li>
+              <li data-marker="—">Дипломатическая площадка: <strong>«Зона Комфорта»</strong> — международная территория мирных переговоров</li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="st4" class="article-block">
+          <div class="article-header">
+            <span class="article-num-badge">Статья 4</span>
+            <span class="article-title-text">Государственный язык</span>
+          </div>
+          <div class="article-body">
+            <p>Официальными языками являются <strong>русский</strong> и <strong>технический английский</strong>. Технические термины на английском не требуют перевода.</p>
+            <p>Язык граждан в повседневной жизни государство не регулирует. Это личное дело каждого.</p>
+          </div>
+        </div>
+
+        <div id="st5" class="article-block">
+          <div class="article-header">
+            <span class="article-num-badge">Статья 5</span>
+            <span class="article-title-text">Государственные символы</span>
+          </div>
+          <div class="article-body">
+            <ul>
+              <li data-marker="🏴"><strong>Флаг:</strong> три горизонтальные полосы — синяя, серая (с эмблемой), чёрная. Эмблема: лапа на якоре с золотым диском. Вывешивается только в безветренную погоду. В шторм убирается. Это тоже часть доктрины.</li>
+              <li data-marker="🛡️"><strong>Герб:</strong> щит из четырёх частей — якорь / консоль / лапа / чай. В центре — морской ёж. Над щитом — открытый ноутбук вместо короны. Под щитом — лента с девизом.</li>
+              <li data-marker="🔵"><strong>Печать:</strong> круглая, монохромная. Лапа на якоре в центре. По дуге: «Суверенная IT-морская Республика Чиллград» / «AFK City». Утверждена 23.05.2026.</li>
+              <li data-marker="🎵"><strong>Гимн:</strong> лоу-фай трек без слов, 3:22. Граждане вправе продолжать свои дела во время исполнения. Принудительное вставание не предусмотрено.</li>
+              <li data-marker="💰"><strong>Валюта:</strong> <span class="hl">Штиль (STL)</span>. 1 STL = 100 Дрейфов. Подробнее — Глава IV.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="st6" class="article-block">
+          <div class="article-header">
+            <span class="article-num-badge">Статья 6</span>
+            <span class="article-title-text">Нейтралитет</span>
+          </div>
+          <div class="article-body">
+            <p>Чиллград придерживается политики <strong>абсолютного, постоянного и непреодолимого нейтралитета.</strong></p>
+            <ul>
+              <li data-marker="а)">Не вступает в военные союзы ни при каких обстоятельствах</li>
+              <li data-marker="б)">Не размещает иностранные военные объекты на своей территории</li>
+              <li data-marker="в)">Не участвует в военных конфликтах на стороне третьих стран</li>
+              <li data-marker="г)">Не объявляет войну первым. Никогда. Ни при каких условиях.</li>
+            </ul>
+            <p style="margin-top:10px">Нейтралитет не означает беззащитность. Система «Як ебнет» функционирует независимо от дипломатического статуса угрозы.</p>
+            <div style="margin-top:14px;padding:12px 16px;background:rgba(255,69,69,0.05);border:1px solid rgba(255,69,69,0.15);border-radius:var(--radius-sm)">
+              <p style="font-size:13px;color:var(--text-secondary)"><span class="hl-red">Изменение статуса нейтралитета невозможно</span> никаким законодательным актом, указом или референдумом. Нейтралитет — это не политика. Это природа Чиллграда.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHAPTER II -->
+      <div id="ch2" class="chapter-block">
+        <div class="chapter-header" data-num="II">
+          <span class="chapter-num-badge">ГЛАВА II</span>
+          <span class="chapter-title-text">Права и свободы граждан</span>
+        </div>
+
+        <div id="st7" class="article-block">
+          <div class="article-header">
+            <span class="article-num-badge">Статья 7</span>
+            <span class="article-title-text">Основные права</span>
+          </div>
+          <div class="article-body">
+            <p style="margin-bottom:14px">Каждый гражданин Чиллграда имеет <strong>неотъемлемое право</strong> на:</p>
+            <ul>
+              <li data-marker="1."><strong>ТИШИНУ.</strong> Право не отвечать на звонки, сообщения и запросы без объяснения причин. Государство это уважает. Работодатели обязаны уважать. Все остальные — тоже.</li>
+              <li data-marker="2."><strong>ПОКОЙ.</strong> Право на отдых является базовым. Не привилегией. Не наградой за работу. Именно базовым правом, которое не нужно заслуживать.</li>
+              <li data-marker="3."><strong>АФК.</strong> Право временно отсутствовать — физически, социально и цифрово — без уведомления кого-либо, кроме экстренных служб.</li>
+              <li data-marker="4."><strong>АНОНИМНОСТЬ.</strong> Граждане не обязаны раскрывать своё местонахождение, деятельность или планы государству сверх установленного законом минимума.</li>
+              <li data-marker="5."><strong>АВТОМАТИЗИРОВАННЫЙ ТРУД.</strong> Каждый гражданин вправе требовать автоматизации своей рутинной деятельности, если это технически возможно.</li>
+              <li data-marker="6."><strong>ЗАЩИТУ ОТ СУЕТЫ.</strong> Любые действия третьих лиц, создающие избыточный шум, панику или принудительную срочность, могут быть обжалованы.</li>
+              <li data-marker="7."><strong>РАВНЫЙ ДОСТУП.</strong> К государственным сетям, портам, навигационным системам и дата-центрам в пределах, установленных законом.</li>
+              <li data-marker="8."><strong>СВОБОДУ ПЕРЕДВИЖЕНИЯ.</strong> Государство не спрашивает, куда и зачем.</li>
+              <li data-marker="9."><strong>ЧАСТНУЮ ЖИЗНЬ.</strong> Данные граждан — их собственность. Сбор данных без согласия является уголовным преступлением, включая действия самого государства.</li>
+              <li data-marker="10."><strong>УБЕЖИЩЕ.</strong> Гарантированное место в подземном комплексе «Уютный Бункер» при любой внешней угрозе.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="st8" class="article-block">
+          <div class="article-header">
+            <span class="article-num-badge">Статья 8</span>
+            <span class="article-title-text">Право на несогласие</span>
+          </div>
+          <div class="article-body">
+            <p>Гражданин вправе не соглашаться с решениями государства. Несогласие выражается через установленные каналы обратной связи, не через нарушение закона.</p>
+            <p>Государство обязано рассмотреть обоснованное несогласие и дать ответ. <strong>Ответ «ясно» является недопустимым.</strong></p>
+          </div>
+        </div>
+
+        <div id="st9" class="article-block">
+          <div class="article-header">
+            <span class="article-num-badge">Статья 9</span>
+            <span class="article-title-text">Ограничения прав</span>
+          </div>
+          <div class="article-body">
+            <p>Права граждан могут быть ограничены исключительно в целях защиты прав других граждан или государственной безопасности.</p>
+            <p>Ограничения вводятся только <strong>законом</strong>. Не указом. Не распоряжением. Только законом, принятым Диванным Советом. Любое ограничение должно быть соразмерно угрозе.</p>
+          </div>
+        </div>
+
+        <div id="st10" class="article-block">
+          <div class="article-header">
+            <span class="article-num-badge">Статья 10</span>
+            <span class="article-title-text">Обязанности граждан</span>
+          </div>
+          <div class="article-body">
+            <ul>
+              <li data-marker="а)">соблюдать законы государства</li>
+              <li data-marker="б)">оплачивать налог на суету при его начислении</li>
+              <li data-marker="в)">не создавать избыточного шума и суеты для окружающих</li>
+              <li data-marker="г)">в случае угрозы — следовать инструкциям протокола «Тихая Гавань»</li>
+            </ul>
+            <div style="margin-top:14px;padding:12px 16px;background:rgba(0,212,170,0.04);border:1px solid rgba(0,212,170,0.15);border-radius:var(--radius-sm)">
+              <p style="font-size:13px;color:var(--text-secondary)">Иных обязанностей настоящая Конституция не устанавливает. <span class="hl">Государство намеренно держит этот список коротким.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHAPTER III -->
+      <div id="ch3" class="chapter-block">
+        <div class="chapter-header" data-num="III">
+          <span class="chapter-num-badge">ГЛАВА III</span>
+          <span class="chapter-title-text">Государственное устройство</span>
+        </div>
+
+        <div id="st11" class="article-block">
+          <div class="article-header">
+            <span class="article-num-badge">Статья 11</span>
+            <span class="article-title-text">Ветви власти</span>
+          </div>
+          <div class="article-body">
+            <ul>
+              <li data-marker="—"><strong>Верховный Администратор</strong> — исполнительная власть</li>
+              <li data-marker="—"><strong>Диванный Совет</strong> — законодательная власть</li>
+              <li data-marker="—"><strong>Автоматизированные системы управления</strong> — операционная власть</li>
+              <li data-marker="—"><strong>Судебный Реестр</strong> — судебная власть</li>
+            </ul>
+            <p style="margin-top:10px">Ни одна ветвь власти не имеет права подменять другую. Автоматизированные системы не принимают политических решений. Политические органы не вмешиваются в работу автоматики.</p>
+          </div>
+        </div>
+
+        <div class="article-block">
+          <div class="article-header">
+            <span class="article-num-badge">Статья 12</span>
+            <span class="article-title-text">Верховный Администратор</span>
+          </div>
+          <div class="article-body">
+            <p>Верховный Администратор является главой государства и носит звание <strong>Главного Дрейфующего</strong>.</p>
+            <p style="margin-top:8px;font-family:var(--font-ui);font-size:13px;color:var(--text-muted)">Вправе: подписывать законы · представлять Чиллград · утверждать печатью «Лапа и Якорь» · активировать доп. протоколы «Як ебнет».</p>
+            <div style="margin-top:12px;padding:12px 16px;background:rgba(255,69,69,0.04);border:1px solid rgba(255,69,69,0.15);border-radius:var(--radius-sm)">
+              <p style="font-size:13px;font-family:var(--font-ui);color:var(--text-muted)"><span class="hl-red">Не вправе:</span> объявлять войну · заключать военные союзы · вводить принудительный труд · ограничивать права в обход Диванного Совета · <strong>отключать систему «Як ебнет».</strong></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="article-block">
+          <div class="article-header">
+            <span class="article-num-badge">Статья 13</span>
+            <span class="article-title-text">Диванный Совет</span>
+          </div>
+          <div class="article-body">
+            <p>Законодательный орган Чиллграда. Принимает законы, утверждает бюджет, ратифицирует договоры, вправе выразить недоверие Верховному Администратору.</p>
+            <p style="margin-top:8px">Заседания — по мере необходимости (не реже раза в квартал). Горизонтальная позиция членов Совета не является нарушением. Заседания могут проводиться дистанционно без ограничений.</p>
+          </div>
+        </div>
+
+        <div class="article-block">
+          <div class="article-header">
+            <span class="article-num-badge">Статья 14</span>
+            <span class="article-title-text">Министерства</span>
+          </div>
+          <div class="article-body">
+            <div class="ministry-grid">
+              <div class="ministry-card">
+                <div class="ministry-abbr">МИД</div>
+                <div class="ministry-name">Министерство иностранных дел</div>
+                <div class="ministry-scope">Дипломатия, пакты, ноты, реестр государств, посольства-таверны, хаб «Зона Комфорта».</div>
+              </div>
+              <div class="ministry-card">
+                <div class="ministry-abbr">МТА</div>
+                <div class="ministry-name">Министерство технологий и аптайма</div>
+                <div class="ministry-scope">Серверы, сети, СУДС «Штиль-Контроль», спутник AFK-1, хостинг данных, ПО.</div>
+              </div>
+              <div class="ministry-card">
+                <div class="ministry-abbr">МТТ</div>
+                <div class="ministry-name">Министерство транзита и тарифов</div>
+                <div class="ministry-scope">Портовая инфраструктура, тариф «Чилловый», акты нарушений, магистраль «Локалхост».</div>
+              </div>
+              <div class="ministry-card">
+                <div class="ministry-abbr">МЭА</div>
+                <div class="ministry-name">Министерство экономики и автоматизации</div>
+                <div class="ministry-scope">Валюта Штиль, внешняя торговля, оффшорная зона, налог на суету, бюджет.</div>
+              </div>
+              <div class="ministry-card">
+                <div class="ministry-abbr">МЧО</div>
+                <div class="ministry-name">Министерство чайного обеспечения</div>
+                <div class="ministry-scope">Стратегические запасы чая, распределение, качественный контроль. Не смешно — критически важное министерство.</div>
+              </div>
+              <div class="ministry-card">
+                <div class="ministry-abbr">МВЧ</div>
+                <div class="ministry-name">Министерство внутреннего чилла</div>
+                <div class="ministry-scope">Качество жизни, зелёные кластеры, зоны отдыха, соблюдение права на тишину, штрафы.</div>
+              </div>
+              <div class="ministry-card secret" style="grid-column:1/-1">
+                <div class="ministry-abbr" style="color:var(--danger)">СВПК 🔒</div>
+                <div class="ministry-name">Секретный военно-промышленный комплекс</div>
+                <div class="ministry-scope">«Прибрежный Садовник» · «Тихий Планктон» · «Атмосферный Дирижёр» · «Спящий Кит». Подчиняется непосредственно Верховному Администратору. Публичных заседаний не проводит.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="article-block">
+          <div class="article-header">
+            <span class="article-num-badge">Статьи 15–16</span>
+            <span class="article-title-text">Автосистемы и Судебный Реестр</span>
+          </div>
+          <div class="article-body">
+            <p>Автоматизированные системы выполняют установленные алгоритмы без отклонений и не принимают политических решений. Подлежат регулярному аудиту МТА. Система «Як ебнет» — автономная, Глава V.</p>
+            <p style="margin-top:8px">Судебный Реестр рассматривает споры граждан с государством и жалобы на нарушение конституционных прав. Принцип: минимальное вмешательство. Если люди договорились сами — Реестр не вмешивается.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHAPTER IV -->
+      <div id="ch4" class="chapter-block">
+        <div class="chapter-header" data-num="IV">
+          <span class="chapter-num-badge">ГЛАВА IV</span>
+          <span class="chapter-title-text">Экономика и финансы</span>
+        </div>
+
+        <div class="article-block">
+          <div class="article-header">
+            <span class="article-num-badge">Статьи 17–18</span>
+            <span class="article-title-text">Модель экономики и национальная валюта</span>
+          </div>
+          <div class="article-body">
+            <p>Экономика Чиллграда: продаём не ресурсы, а инфраструктуру, безопасность и автоматизацию. Государство не вмешивается в деятельность граждан. Монополия государства — только на навигационные данные, СУДС и дипломатические серверы.</p>
+            <p style="margin-top:10px"><strong>Национальная валюта — Штиль (STL).</strong> 1 STL = 100 Дрейфов. Обеспечен аптаймом государственных серверов. Необеспеченная эмиссия запрещена. Свободно конвертируется.</p>
+          </div>
+        </div>
+
+        <div id="st19" class="article-block">
+          <div class="article-header">
+            <span class="article-num-badge">Статья 19</span>
+            <span class="article-title-text">Налогообложение</span>
+          </div>
+          <div class="article-body">
+            <div style="display:flex;gap:16px;align-items:center;margin-bottom:16px;flex-wrap:wrap">
+              <div style="padding:14px 20px;background:rgba(0,212,170,0.08);border:1px solid rgba(0,212,170,0.25);border-radius:var(--radius-sm);text-align:center;min-width:140px">
+                <div style="font-family:var(--font-display);font-size:32px;color:var(--teal)">0%</div>
+                <div style="font-family:var(--font-ui);font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px">Налог на прибыль</div>
+              </div>
+              <div style="flex:1;min-width:200px">
+                <p>Государство обеспечивает себя за счёт внешних источников. Единственный существующий внутренний налог — <strong>Налог на Суету (НС)</strong>. Начисляется автоматически.</p>
+              </div>
+            </div>
+
+            <div class="tax-table-wrap">
+              <div class="tax-section-head">🧍 Для граждан</div>
+              <div class="tax-row"><span class="tax-desc">Звонок без предупреждения в нерабочее время</span><span class="tax-amount">50 STL</span></div>
+              <div class="tax-row"><span class="tax-desc">Голосовое сообщение свыше 2 минут</span><span class="tax-amount warning">30–300 STL</span></div>
+              <div class="tax-row"><span class="tax-desc">Ответ «ясно» в официальной переписке</span><span class="tax-amount warning">25–200 STL</span></div>
+              <div class="tax-row"><span class="tax-desc">Создание ложной срочности</span><span class="tax-amount warning">200 STL</span></div>
+              <div class="tax-row"><span class="tax-desc">Распространение паники</span><span class="tax-amount danger">500–1 500 STL</span></div>
+              <div class="tax-row"><span class="tax-desc">Статус «Хронический Генератор Суеты»</span><span class="tax-amount danger">2 000 STL / мес.</span></div>
+              <div class="tax-section-head">🏢 Для предпринимателей</div>
+              <div class="tax-row"><span class="tax-desc">Требование ответа в нерабочее время</span><span class="tax-amount warning">500 STL / случай</span></div>
+              <div class="tax-row"><span class="tax-desc">Совещание вместо письма</span><span class="tax-amount warning">800 STL</span></div>
+              <div class="tax-row"><span class="tax-desc">Искусственный дедлайн</span><span class="tax-amount danger">1 500 STL</span></div>
+              <div class="tax-row"><span class="tax-desc">Принуждение к офису без оснований</span><span class="tax-amount danger">2 000 STL / случай</span></div>
+              <div class="tax-row"><span class="tax-desc">Скрытые платежи и комиссии</span><span class="tax-amount danger">5 000 STL + возврат</span></div>
+              <div class="tax-row"><span class="tax-desc">Корпоративный тренинг без согласия персонала</span><span class="tax-amount danger">15 000 STL</span></div>
+              <div class="tax-section-head">🌍 Для иностранных государств</div>
+              <div class="tax-row"><span class="tax-desc">Нарушение тарифа «Чилловый»</span><span class="tax-amount warning">тариф × 5–15</span></div>
+              <div class="tax-row"><span class="tax-desc">Нарушение условий Пакта «Мягкие Лапки»</span><span class="tax-amount danger">500 000 STL</span></div>
+              <div class="tax-row"><span class="tax-desc">Нарушение неприкосновенности посольства</span><span class="tax-amount danger">2 000 000 STL</span></div>
+              <div class="tax-row"><span class="tax-desc">Фактическое нападение на территорию</span><span class="tax-amount danger">10 000 000 STL <span style="color:var(--text-muted);font-size:10px">(это наименьшая мера)</span></span></div>
+            </div>
+
+            <p style="margin-top:16px;font-size:13px;color:var(--text-secondary)">Средства от НС: 40% — зоны отдыха · 30% — автоматизация · 20% — стратегический запас чая · 10% — резерв «Тихой Гавани». Обжаловать через Судебный Реестр в течение 30 суток.</p>
+          </div>
+        </div>
+
+        <div class="article-block">
+          <div class="article-header">
+            <span class="article-num-badge">Статья 20</span>
+            <span class="article-title-text">Государственные доходы</span>
+          </div>
+          <div class="article-body">
+            <ul>
+              <li data-marker="а)">Транзитный тариф «Чилловый» с иностранных судов</li>
+              <li data-marker="б)">Плата за хостинг данных в дата-центрах АФК Сити</li>
+              <li data-marker="в)">Лицензионные платежи за навигационный софт и карты</li>
+              <li data-marker="г)">Комиссия за хостинг дипломатических серверов</li>
+              <li data-marker="д)">Штрафы по актам нарушения тарифного режима СУДС</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHAPTER V -->
+      <div id="ch5" class="chapter-block">
+        <div class="chapter-header" data-num="V">
+          <span class="chapter-num-badge">ГЛАВА V</span>
+          <span class="chapter-title-text">Оборона и безопасность</span>
+        </div>
+
+        <div class="article-block">
+          <div class="article-header">
+            <span class="article-num-badge">Статья 21</span>
+            <span class="article-title-text">Оборонная доктрина «Морской Ёж»</span>
+          </div>
+          <div class="article-body">
+            <p>Чиллград не нападает первым — никогда, ни при каких обстоятельствах, ни под каким предлогом. Чиллград не угрожает. Чиллград не демонстрирует силу в провокационных целях.</p>
+            <p style="margin-top:10px"><strong>Чиллград реагирует. Автоматически. Соразмерно. Необратимо.</strong></p>
+            <p style="margin-top:10px">Это не миролюбие из слабости. Это выбор государства, которое знает, что оно делает, и предпочитает не афишировать свои возможности заранее.</p>
+          </div>
+        </div>
+
+        <div class="article-block">
+          <div class="article-header">
+            <span class="article-num-badge">Статья 22</span>
+            <span class="article-title-text">Система «Як ебнет»</span>
+          </div>
+          <div class="article-body">
+            <ul>
+              <li data-marker="—">Функционирует полностью автономно, без участия человека в оперативном управлении</li>
+              <li data-marker="—">Никто не вправе отдать системе приказ на атаку — только автономные триггеры</li>
+              <li data-marker="—">Деактивация — исключительная компетенция Верховного Администратора, физическим ключом</li>
+              <li data-marker="—">Акустический сигнал активации = официальное уведомление для всех сторон</li>
+            </ul>
+            <div style="margin-top:12px;padding:12px 16px;background:rgba(255,69,69,0.04);border:1px solid rgba(255,69,69,0.15);border-radius:var(--radius-sm)">
+              <p style="font-size:13px;color:var(--text-secondary)">Система «Як ебнет» <span class="hl-red">не является нарушением нейтралитета</span>. Нейтралитет — отказ от агрессии. Автоматическая самооборона агрессией не является. Подробные триггеры — в закрытом Томе №2.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="article-block">
+          <div class="article-header">
+            <span class="article-num-badge">Статьи 23–24</span>
+            <span class="article-title-text">Гражданская защита и отсутствие армии</span>
+          </div>
+          <div class="article-body">
+            <p>При угрозе — протокол «Тихая Гавань». Место в «Уютном Бункере» — гарантировано каждому гражданину. Запасы — не менее двух лет. Цифровые активы эвакуируются на три независимых узла автоматически.</p>
+            <p style="margin-top:10px"><strong>Чиллград не содержит регулярной армии.</strong> Оборона — только автоматизированными системами СУДС и СВПК. Создание регулярных вооружённых сил требует изменения Конституции с абсолютным вето Верховного Администратора — единственное абсолютное вето во всём документе.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHAPTER VI -->
+      <div id="ch6" class="chapter-block">
+        <div class="chapter-header" data-num="VI">
+          <span class="chapter-num-badge">ГЛАВА VI</span>
+          <span class="chapter-title-text">Внешняя политика</span>
+        </div>
+
+        <div class="article-block">
+          <div class="article-header">
+            <span class="article-num-badge">Статья 25</span>
+            <span class="article-title-text">Принципы</span>
+          </div>
+          <div class="article-body">
+            <div style="padding:16px 20px;background:rgba(124,92,247,0.06);border:1px solid rgba(124,92,247,0.18);border-radius:var(--radius-sm);margin-bottom:12px">
+              <p style="font-family:var(--font-display);font-size:16px;color:var(--purple-light)">«Абсолютный Френдзонинг»</p>
+              <p style="font-size:13px;color:var(--text-secondary);margin-top:6px">Со всеми в хороших отношениях, ни с кем в военных союзах.</p>
+            </div>
+            <p>Чиллград не поддерживает ни одну из сторон в конфликтах третьих государств — ни дипломатически, ни экономически, ни информационно.</p>
+          </div>
+        </div>
+
+        <div class="article-block">
+          <div class="article-header">
+            <span class="article-num-badge">Статьи 26–28</span>
+            <span class="article-title-text">Договоры, реестр и посольства</span>
+          </div>
+          <div class="article-body">
+            <p>Стандартный договор — <strong>Пакт «Мягкие Лапки»</strong> (форма ЧГ-МЛ-01). Ни один договор не может создавать военные обязательства или передавать управление «Як ебнет» третьей стороне.</p>
+            <p style="margin-top:10px">МИД ведёт открытый Реестр дружественных государств. Включение ≠ союзничество.</p>
+            <p style="margin-top:10px"><strong>Посольства-Таверны</strong> — суверенная территория Чиллграда. В посольстве войн не существует. Любой человек, сдавший оружие на входе, получает неприкосновенность, горячую еду и место для сна. Без вопросов. Без исключений.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHAPTER VII -->
+      <div id="ch7" class="chapter-block">
+        <div class="chapter-header" data-num="VII">
+          <span class="chapter-num-badge">ГЛАВА VII</span>
+          <span class="chapter-title-text">Гражданство</span>
+        </div>
+
+        <div class="article-block">
+          <div class="article-header">
+            <span class="article-num-badge">Статьи 29–31</span>
+            <span class="article-title-text">Приобретение, двойное, утрата</span>
+          </div>
+          <div class="article-body">
+            <p>Гражданство — по рождению или через натурализацию (год проживания + знание языка + знание Конституции + отсутствие обязательств перед иностранными армиями).</p>
+            <div style="margin-top:12px;padding:14px 18px;background:rgba(0,212,170,0.04);border:1px solid rgba(0,212,170,0.15);border-radius:var(--radius-sm)">
+              <p style="font-size:13px;color:var(--teal);font-family:var(--font-ui);font-weight:700;margin-bottom:6px">Тест на натурализацию — практический раздел:</p>
+              <p style="font-size:13px;color:var(--text-secondary)">Кандидат обязан провести в тишине не менее двух часов подряд, не нарушая атмосферы. Это не шутка. Это диагностика совместимости.</p>
+            </div>
+            <p style="margin-top:10px">Двойное гражданство допускается при отсутствии обязательств военной службы за рубежом.</p>
+            <p style="margin-top:6px"><strong>Принудительное лишение гражданства не допускается ни при каких обстоятельствах. Даже если очень хочется.</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHAPTER VIII -->
+      <div id="ch8" class="chapter-block">
+        <div class="chapter-header" data-num="VIII">
+          <span class="chapter-num-badge">ГЛАВА VIII</span>
+          <span class="chapter-title-text">Чрезвычайное положение</span>
+        </div>
+
+        <div class="article-block">
+          <div class="article-header">
+            <span class="article-num-badge">Статьи 32–34</span>
+            <span class="article-title-text">Основания, порядок, ограничения</span>
+          </div>
+          <div class="article-body">
+            <p>ЧП вводится при: вооружённой угрозе · природной/техногенной катастрофе · критическом падении аптайма ниже 50%.</p>
+            <p style="margin-top:8px">Срок — не более 30 суток. Совместным решением Верховного Администратора и Диванного Совета (или единоличным с утверждением в 72 часа).</p>
+            <div style="margin-top:14px;padding:14px 18px;background:rgba(0,212,170,0.04);border:1px solid rgba(0,212,170,0.2);border-radius:var(--radius-sm)">
+              <p style="font-size:13px;font-family:var(--font-ui);font-weight:700;color:var(--teal);margin-bottom:8px">Даже в ЧП не могут быть ограничены:</p>
+              <ul style="list-style:none;padding:0">
+                <li style="padding:4px 0;color:var(--text-secondary);font-size:13px">🛡️ Право на жизнь и физическую безопасность</li>
+                <li style="padding:4px 0;color:var(--text-secondary);font-size:13px">🏠 Право на доступ в убежище «Уютный Бункер»</li>
+                <li style="padding:4px 0;color:var(--text-secondary);font-size:13px">🍵 <strong>Право на чай. Стратегические запасы неприкосновенны.</strong></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHAPTER IX -->
+      <div id="ch9" class="chapter-block">
+        <div class="chapter-header" data-num="IX">
+          <span class="chapter-num-badge">ГЛАВА IX</span>
+          <span class="chapter-title-text">Поправки к Конституции</span>
+        </div>
+
+        <div class="article-block">
+          <div class="article-header">
+            <span class="article-num-badge">Статья 35</span>
+            <span class="article-title-text">Порядок изменения</span>
+          </div>
+          <div class="article-body">
+            <p>Порядок: инициатива → обсуждение 30 суток → принятие 2/3 Диванного Совета → утверждение Верховным Администратором.</p>
+
+            <div class="immutable-block" style="margin-top:16px">
+              <div class="immutable-title">🔒 Неизменяемое Ядро Конституции</div>
+              <p style="font-size:13px;color:var(--text-secondary);margin-bottom:12px">Следующие положения не могут быть изменены никакими поправками:</p>
+              <div class="immutable-item"><span class="immutable-lock">🔒</span><span>Нейтралитет Чиллграда (Статья 6)</span></div>
+              <div class="immutable-item"><span class="immutable-lock">🔒</span><span>Запрет армии без абсолютного вето Верховного Администратора (Статья 24, ч.3)</span></div>
+              <div class="immutable-item"><span class="immutable-lock">🔒</span><span>Право граждан на тишину и АФК (Статья 7, пп. 1 и 3)</span></div>
+              <div class="immutable-item"><span class="immutable-lock">🔒</span><span>Принцип «Не трогай — и всем хорошо» (Статья 2)</span></div>
+              <div class="immutable-item"><span class="immutable-lock">🔒</span><span>Автономность системы «Як ебнет» (Статья 22, ч.2)</span></div>
+            </div>
+            <p style="margin-top:12px;font-size:13px;color:var(--text-muted)">Попытка изменить Ядро автоматически признаётся неконституционной и не имеет юридической силы.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHAPTER X -->
+      <div id="ch10" class="chapter-block">
+        <div class="chapter-header" data-num="X">
+          <span class="chapter-num-badge">ГЛАВА X</span>
+          <span class="chapter-title-text">Заключительные и переходные положения</span>
+        </div>
+
+        <div class="article-block">
+          <div class="article-header">
+            <span class="article-num-badge">Статьи 36–38</span>
+            <span class="article-title-text">Верховенство, вступление в силу, толкование</span>
+          </div>
+          <div class="article-body">
+            <p>Конституция обладает высшей юридической силой. Несоответствующие акты ничтожны с момента принятия. Граждане вправе ссылаться на Конституцию напрямую.</p>
+            <p style="margin-top:10px">Конституция вступила в силу 12 января — <strong>День Первого Дрейфа</strong>. Этот день отмечается ежегодно без обязательной программы.</p>
+            <div style="margin-top:14px;padding:14px 18px;background:rgba(124,92,247,0.05);border:1px solid rgba(124,92,247,0.15);border-radius:var(--radius-sm)">
+              <p style="font-size:13px;font-family:var(--font-ui);font-weight:700;color:var(--purple-light);margin-bottom:8px">Дух Конституции:</p>
+              <p style="font-size:14px;color:var(--text-secondary);line-height:1.8">Люди важнее процедур. Спокойствие важнее эффективности. Доброта важнее формальной правоты. При любых сомнениях толкование применяется в пользу гражданина.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="article-block" style="border-bottom:none">
+          <div class="article-header">
+            <span class="article-num-badge">Статья 39</span>
+            <span class="article-title-text">Последнее слово</span>
+          </div>
+          <div class="closing-quote">
+            <div class="closing-main">
+              Настоящая Конституция написана людьми,<br>которые устали от лишних слов.<br>Поэтому в ней сказано ровно столько, сколько нужно.
+            </div>
+            <div class="closing-sub">
+              Государство существует для тебя.<br>
+              Не ты для государства.
+            </div>
+            <div class="closing-final">Чиллград помнит об этом всегда.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIGNATURES -->
+      <div id="signatures">
+        <div class="divider"></div>
+        <div class="section-label" style="margin-bottom:20px">// Подписи при принятии</div>
+        <div class="sig-grid">
+          <div class="sig-card">
+            <div class="sig-role">Верховный Администратор / Главный Дрейфующий</div>
+            <div class="sig-name">Teddy Bear</div>
+            <div class="sig-line"></div>
+            <div class="sig-seal">
+              <div class="seal-circle">🐾⚓</div>
+              <div class="seal-text">ЛАПА И ЯКОРЬ</div>
+            </div>
+          </div>
+          <div class="sig-card">
+            <div class="sig-role">Председатель Диванного Совета</div>
+            <div class="sig-name" style="font-style:italic;color:var(--text-secondary);font-size:15px">_________________________</div>
+            <div class="sig-line"></div>
+            <div class="sig-seal">
+              <div class="seal-circle" style="font-size:16px;color:var(--text-muted);letter-spacing:1px">ПЕЧАТЬ</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:20px;padding:16px 20px;background:rgba(0,212,170,0.03);border:1px solid var(--border);border-radius:var(--radius);text-align:center">
+          <p style="font-family:var(--font-mono);font-size:12px;color:var(--text-muted)">Дата принятия: <span style="color:var(--teal)">12 января</span> · Место: Хаб «Зона Комфорта», АФК Сити, Чиллград</p>
+          <p style="font-family:var(--font-ui);font-size:13px;color:var(--text-secondary);margin-top:8px;font-style:italic">«Да пребудет в Чиллграде стабильность, высокий аптайм и минимальный уровень суеты.»</p>
+        </div>
+        <div style="margin-top:24px">
+          <a href="constitution.html" class="btn btn-outline" style="font-size:13px">← Открытая редакция</a>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
 
 <footer class="footer">
   <div class="container">
@@ -147,5 +1003,28 @@
     </div>
   </div>
 </footer>
+
+<script>
+  // Reading progress bar
+  window.addEventListener('scroll', () => {
+    const doc = document.documentElement;
+    const scrolled = doc.scrollTop / (doc.scrollHeight - doc.clientHeight) * 100;
+    document.getElementById('readProgress').style.width = scrolled + '%';
+  });
+
+  // Active TOC highlighting
+  const sections = document.querySelectorAll('[id]');
+  const tocLinks = document.querySelectorAll('.toc-link');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.toc-link[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
 </body>
 </html>
