@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Полная Конституция — Чиллград</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spinner { animation: spin 8s linear infinite; display: inline-block; font-size: 60px; }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+    .floater { animation: float 3s ease-in-out infinite; }
+    .progress-bar {
+      width: 100%; max-width: 400px; height: 6px;
+      background: rgba(255,255,255,0.06); border-radius: 100px;
+      overflow: hidden; margin: 0 auto;
+    }
+    .progress-fill {
+      height: 100%; width: 23%; border-radius: 100px;
+      background: linear-gradient(90deg, var(--purple), var(--teal));
+      animation: progress 4s ease-in-out infinite alternate;
+    }
+    @keyframes progress { from { width: 18%; } to { width: 28%; } }
+
+    .wip-log {
+      max-width: 560px;
+      margin: 40px auto 0;
+      background: #02060f;
+      border: 1px solid var(--border-mid);
+      border-radius: var(--radius);
+      overflow: hidden;
+      text-align: left;
+    }
+    .wip-log-bar {
+      background: #08101f; padding: 10px 16px;
+      display: flex; align-items: center; gap: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .wip-log-body { padding: 18px 20px; }
+    .log-line { font-family: var(--font-mono); font-size: 12px; line-height: 2.1; }
+    .log-ok   { color: #28c840; }
+    .log-pend { color: var(--warning); }
+    .log-wip  { color: var(--purple-light); }
+    .log-lock { color: var(--text-muted); }
+    .cursor { animation: blink 1.1s step-start infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">Ч</div>
+      <span class="nav-logo-name">Чиллград</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Обзор</a>
+      <a href="materials.html" class="nav-link">Материалы</a>
+      <a href="pacts.html" class="nav-link">Пакты</a>
+      <a href="constitution.html" class="nav-link active">Конституция</a>
+      <a href="doctrines.html" class="nav-link">Доктрины</a>
+      <a href="symbols.html" class="nav-link">Символы</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Docs nav -->
+<section style="padding:24px 0 0">
+  <div class="container">
+    <div class="docs-nav">
+      <a href="constitution.html" class="docs-nav-link">📋 Открытая редакция</a>
+      <a href="constitution-full.html" class="docs-nav-link active">📁 Полная редакция</a>
+    </div>
+  </div>
+</section>
+
+<!-- WIP SECTION -->
+<section class="section">
+  <div class="container">
+    <div class="wdev-center" style="padding:80px 0">
+
+      <div class="floater" style="margin-bottom:24px">
+        <div class="spinner">⚙️</div>
+      </div>
+
+      <div class="badge badge-warning" style="margin-bottom:28px;font-size:12px;padding:6px 18px">
+        В РАЗРАБОТКЕ
+      </div>
+
+      <h1 class="wdev-title" style="font-size:clamp(30px,5vw,48px)">Полная редакция<br>Конституции</h1>
+      <p class="wdev-desc">Диванный Совет Чиллграда ведёт работу над расширенной версией документа. Все подпункты, технические регламенты, засекреченные приложения и отдельные тома находятся на стадии согласования.</p>
+
+      <div class="progress-bar" style="margin-bottom:12px">
+        <div class="progress-fill"></div>
+      </div>
+      <p class="text-muted" style="font-family:var(--font-mono);font-size:11px;letter-spacing:1px">ПРОГРЕСС: ~23% · СТАТУС: DAEMON_MODE</p>
+
+      <!-- Mock log -->
+      <div class="wip-log">
+        <div class="wip-log-bar">
+          <div class="terminal-dot"></div>
+          <div class="terminal-dot"></div>
+          <div class="terminal-dot"></div>
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--text-muted);margin-left:8px">constitution-full.sh — АФК Сити · Диванный Совет</span>
+        </div>
+        <div class="wip-log-body">
+          <div class="log-line log-ok">[✓] Преамбула ................... готово</div>
+          <div class="log-line log-ok">[✓] Глава I: Основной принцип ... готово</div>
+          <div class="log-line log-ok">[✓] Глава II: Устройство ......... готово</div>
+          <div class="log-line log-ok">[✓] Глава III: Нейтралитет ....... готово</div>
+          <div class="log-line log-pend">[~] Глава IV: Права граждан ...... дописывается</div>
+          <div class="log-line log-pend">[~] Глава V: Экономика ........... согласование</div>
+          <div class="log-line log-wip">[·] Глава VI: Оборона ............ в процессе</div>
+          <div class="log-line log-wip">[·] Глава VII: Цифровой суверенитет .. в процессе</div>
+          <div class="log-line log-lock">[🔒] Приложение A: Протокол «Як ебнет» .... засекречено</div>
+          <div class="log-line log-lock">[🔒] Приложение Б: Том N2 ............ зашифрован</div>
+          <div class="log-line log-lock">[🔒] Приложение В: Координаты узла «Гамма» . не раскрывается даже Диванному Совету</div>
+          <div class="log-line" style="color:var(--text-muted)">[…] Ожидание завершения сессии Диванного Совета... <span class="cursor">_</span></div>
+        </div>
+      </div>
+
+      <!-- Joke note -->
+      <div style="margin-top:40px;max-width:480px;margin-left:auto;margin-right:auto;padding:20px 24px;background:rgba(0,212,170,0.04);border:1px solid rgba(0,212,170,0.15);border-radius:var(--radius)">
+        <p style="font-family:var(--font-ui);font-size:13px;color:var(--text-secondary);line-height:1.8;font-style:italic">
+          Диванный Совет работает в штатном режиме. Документ будет готов, когда будет готов. Суета вокруг сроков карается автоматическим штрафом.
+        </p>
+        <div style="display:flex;align-items:center;gap:10px;margin-top:14px">
+          <div style="width:28px;height:28px;background:linear-gradient(135deg,var(--teal),var(--purple));border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0">Ч</div>
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--text-muted)">Пресс-служба Чиллграда · IDLE режим</span>
+        </div>
+      </div>
+
+      <div style="margin-top:36px">
+        <a href="constitution.html" class="btn btn-outline">← Вернуться к открытой редакции</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">⚓ Суверенная IT-морская Республика Чиллград</div>
+      <div class="footer-motto">"Не трогай — и всем хорошо"</div>
+      <div class="footer-status">STATUS: IDLE/AFK · UPTIME: 99.97% · CODEX v4.0</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
