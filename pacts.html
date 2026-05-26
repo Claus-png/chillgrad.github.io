@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Пакты — Чиллград</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .pact-full { padding: 28px 0 0; }
+    .pact-meta { display: flex; flex-wrap:wrap; gap: 10px; margin-bottom: 28px; }
+    .meta-item { padding: 8px 16px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 8px; font-family: var(--font-ui); font-size: 13px; color: var(--text-secondary); }
+    .meta-item span { color: var(--text-primary); font-weight: 600; }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">Ч</div>
+      <span class="nav-logo-name">Чиллград</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Обзор</a>
+      <a href="materials.html" class="nav-link">Материалы</a>
+      <a href="pacts.html" class="nav-link active">Пакты</a>
+      <a href="constitution.html" class="nav-link">Конституция</a>
+      <a href="doctrines.html" class="nav-link">Доктрины</a>
+      <a href="symbols.html" class="nav-link">Символы</a>
+    
+      <div class="nav-dropdown">
+        <button class="nav-link nav-dropdown-btn">Ещё ▾</button>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dd-label">Государство</div>
+          <a href="history.html" class="nav-dropdown-item"><span class="di">📜</span>История</a>
+          <a href="timeline.html" class="nav-dropdown-item"><span class="di">⏱️</span>Хронология</a>
+          <div class="nav-dd-divider"></div>
+          <div class="nav-dd-label">Документы</div>
+          <a href="economy.html" class="nav-dropdown-item"><span class="di">💰</span>Экономика</a>
+          <a href="budget.html" class="nav-dropdown-item"><span class="di">📊</span>Бюджет</a>
+          <div class="nav-dd-divider"></div>
+          <div class="nav-dd-label">Право</div>
+          <a href="criminal-code.html" class="nav-dropdown-item"><span class="di">⚖️</span>Уголовный кодекс</a>
+          <a href="maritime-code.html" class="nav-dropdown-item"><span class="di">⚓</span>Морской кодекс</a>
+          <div class="nav-dd-divider"></div>
+          <div class="nav-dd-label">Граждане</div>
+          <a href="citizenship.html" class="nav-dropdown-item"><span class="di">🪪</span>Гражданство</a>
+          <a href="passport.html" class="nav-dropdown-item"><span class="di">📘</span>Паспорт</a>
+          <a href="registry.html" class="nav-dropdown-item"><span class="di">📋</span>Реестр</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" style="padding:70px 0 60px">
+  <div class="container">
+    <div class="hero-badge">Дипломатические документы</div>
+    <h1 class="hero-title" style="font-size:clamp(40px,6vw,72px)">Пакты</h1>
+    <p class="hero-desc" style="margin-bottom:0">Стандартное соглашение «Мягкие Лапки» открыто для подписания со всеми государствами. На данный момент заключён один действующий пакт.</p>
+  </div>
+</section>
+
+<!-- PACT INFO -->
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <div class="section-label">// Стандартный пакт Чиллграда</div>
+      <h2 class="section-title">«Мягкие Лапки» — что получает сосед</h2>
+    </div>
+    <div class="grid-3" style="margin-bottom:60px">
+      <div class="card">
+        <div class="card-title">💸 Экономика</div>
+        <p class="text-secondary" style="font-size:14px;line-height:1.75">Скидка <strong class="text-teal">50%</strong> на транзит судов через территориальные воды Чиллграда.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">💾 Данные</div>
+        <p class="text-secondary" style="font-size:14px;line-height:1.75">Бесплатный хостинг для государственных бэкапов в защищённых дата-центрах АФК Сити.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">🗺️ Навигация</div>
+        <p class="text-secondary" style="font-size:14px;line-height:1.75">Доступ к навигационным картам Чиллграда — точнейшие гидрографические данные региона.</p>
+      </div>
+    </div>
+
+    <div class="section-heading">
+      <div class="section-label">// Главное условие</div>
+      <div class="card" style="border-color:rgba(245,197,24,0.25);background:rgba(245,197,24,0.03)">
+        <p style="font-family:var(--font-ui);font-size:16px;color:var(--text-primary);line-height:1.8">В случае войны между третьими странами подписавший пакт обязуется <strong style="color:var(--warning)">не использовать акваторию Чиллграда для военных манёвров</strong>. Нарушение = автоматический разрыв пакта, блокировка счетов агрессора и отключение его кораблей от навигации.</p>
+      </div>
+    </div>
+
+        <div class="divider"></div>
+    <div class="section-label" style="margin-bottom:24px">// Реестр государств · Статус пактов</div>
+
+    <!-- AQUILONIA -->
+    <div class="pact-card active-pact" style="margin-bottom:14px">
+      <div class="pact-card-header">
+        <div class="country-dot" style="background:#dc2626;box-shadow:0 0 8px rgba(220,38,38,0.5)"></div>
+        <div class="country-name">Аквилония</div>
+        <span class="badge badge-success">✓ ЧГ-МЛ-001-2026</span>
+        <span class="mono" style="font-size:11px;color:var(--text-muted)">23.05.2026</span>
+      </div>
+      <div style="padding:0 24px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid var(--border);padding-top:16px">
+        <div>
+          <p class="text-secondary" style="font-size:14px">Пакт «Мягкие Лапки» v2.0 · Статус: <strong style="color:var(--teal)">Приоритетный Торговый Сосед категории: Нормальные Ребята</strong></p>
+          <p class="text-muted" style="font-size:12px;margin-top:4px;font-family:var(--font-mono)">Скидка 50% на транзит · Хостинг госбэкапов · Канал «БРАТАН ТЫ НЕ ПОВЕРИШЬ»: АКТИВЕН</p>
+        </div>
+        <div style="display:flex;gap:8px;flex-shrink:0">
+          <a href="pacts/ЧГ-МЛ-001-2026_Пакт_Аквилония.html" class="btn btn-primary" style="font-size:13px">Читать пакт →</a>
+          <a href="docs/ЧГ-МЛ-001-2026_Пакт_Аквилония.txt" download class="btn btn-outline" style="font-size:13px">⬇ .txt</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- FROIDELANDING -->
+    <div class="pact-card active-pact" style="margin-bottom:24px;border-color:rgba(59,130,246,0.3)">
+      <div class="pact-card-header">
+        <div class="country-dot" style="background:#3b82f6;box-shadow:0 0 8px rgba(59,130,246,0.5)"></div>
+        <div class="country-name">Фройделандия</div>
+        <span class="badge badge-success">✓ ЧГ-МЛ-002-2026</span>
+        <span class="mono" style="font-size:11px;color:var(--text-muted)">25.05.2026</span>
+      </div>
+      <div style="padding:0 24px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid var(--border);padding-top:16px">
+        <div>
+          <p class="text-secondary" style="font-size:14px">Пакт «Мягкие Лапки» v2.1 · Статус: <strong style="color:#60a5fa">Приоритетный Торговый Сосед категории: Нормальные Ребята</strong></p>
+          <p class="text-muted" style="font-size:12px;margin-top:4px;font-family:var(--font-mono)">Скидка 100% на транзит (уникально) · Хостинг 10 ТБ · Реестр: повышен до [A]</p>
+        </div>
+        <div style="display:flex;gap:8px;flex-shrink:0">
+          <a href="pacts/ЧГ-МЛ-002-2026_Пакт_Фройделандия.html" class="btn btn-primary" style="font-size:13px">Читать пакт →</a>
+          <a href="docs/ЧГ-МЛ-002-2026_Пакт_Фройделандия.txt" download class="btn btn-outline" style="font-size:13px">⬇ .txt</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-bottom:16px">// Остальные государства</div>
+    <p class="text-secondary" style="font-size:14px;margin-bottom:24px">Пакт «Мягкие Лапки» заключён с Аквилонией и Фройделандией. Со всеми остальными государствами пакт не подписан.</p>
+    <div class="pact-card" style="margin-bottom:8px">
+      <div class="pact-card-header">
+        <div class="country-dot" style="background:#e879f9"></div>
+        <div class="country-name">Дайтеденек</div>
+        <span class="badge badge-neutral">Нет пакта</span>
+      </div>
+      <div class="no-pact-block" style="padding-left:24px">
+        <span style="font-size:18px">🤷</span>
+        <span>С государством <strong>Дайтеденек</strong> пакт «Мягкие Лапки» не заключён. Соглашение доступно для подписания в любое время.</span>
+      </div>
+    </div>
+
+    <div class="pact-card" style="margin-bottom:8px">
+      <div class="pact-card-header">
+        <div class="country-dot" style="background:#6b7280"></div>
+        <div class="country-name">Витания</div>
+        <span class="badge badge-neutral">Нет пакта</span>
+      </div>
+      <div class="no-pact-block" style="padding-left:24px">
+        <span style="font-size:18px">🤷</span>
+        <span>С государством <strong>Витания</strong> пакт «Мягкие Лапки» не заключён. Соглашение доступно для подписания в любое время.</span>
+      </div>
+    </div>
+
+    <div class="pact-card" style="margin-bottom:8px">
+      <div class="pact-card-header">
+        <div class="country-dot" style="background:#7f1d1d"></div>
+        <div class="country-name">Арборея</div>
+        <span class="badge badge-neutral">Нет пакта</span>
+      </div>
+      <div class="no-pact-block" style="padding-left:24px">
+        <span style="font-size:18px">🤷</span>
+        <span>С государством <strong>Арборея</strong> пакт «Мягкие Лапки» не заключён. Соглашение доступно для подписания в любое время.</span>
+      </div>
+    </div>
+
+    <div class="pact-card" style="margin-bottom:8px">
+      <div class="pact-card-header">
+        <div class="country-dot" style="background:#f472b6"></div>
+        <div class="country-name">Блэйсерланд</div>
+        <span class="badge badge-neutral">Нет пакта</span>
+      </div>
+      <div class="no-pact-block" style="padding-left:24px">
+        <span style="font-size:18px">🤷</span>
+        <span>С государством <strong>Блэйсерланд</strong> пакт «Мягкие Лапки» не заключён. Соглашение доступно для подписания в любое время.</span>
+      </div>
+    </div>
+
+    <div class="pact-card" style="margin-bottom:8px">
+      <div class="pact-card-header">
+        <div class="country-dot" style="background:#16a34a"></div>
+        <div class="country-name">Бретонния</div>
+        <span class="badge badge-neutral">Нет пакта</span>
+      </div>
+      <div class="no-pact-block" style="padding-left:24px">
+        <span style="font-size:18px">🤷</span>
+        <span>С государством <strong>Бретонния</strong> пакт «Мягкие Лапки» не заключён. Соглашение доступно для подписания в любое время.</span>
+      </div>
+    </div>
+
+    <div class="pact-card" style="margin-bottom:8px">
+      <div class="pact-card-header">
+        <div class="country-dot" style="background:#6b94ba"></div>
+        <div class="country-name">Бонниленд</div>
+        <span class="badge badge-neutral">Нет пакта</span>
+      </div>
+      <div class="no-pact-block" style="padding-left:24px">
+        <span style="font-size:18px">🤷</span>
+        <span>С государством <strong>Бонниленд</strong> пакт «Мягкие Лапки» не заключён. Соглашение доступно для подписания в любое время.</span>
+      </div>
+    </div>
+
+    <div class="pact-card" style="margin-bottom:8px">
+      <div class="pact-card-header">
+        <div class="country-dot" style="background:#92400e"></div>
+        <div class="country-name">Византийская Федерация</div>
+        <span class="badge badge-neutral">Нет пакта</span>
+      </div>
+      <div class="no-pact-block" style="padding-left:24px">
+        <span style="font-size:18px">🤷</span>
+        <span>С государством <strong>Византийская Федерация</strong> пакт «Мягкие Лапки» не заключён. Соглашение доступно для подписания в любое время.</span>
+      </div>
+    </div>
+
+    <div class="pact-card" style="margin-bottom:8px">
+      <div class="pact-card-header">
+        <div class="country-dot" style="background:#166534"></div>
+        <div class="country-name">Королевство Лунный Свет</div>
+        <span class="badge badge-neutral">Нет пакта</span>
+      </div>
+      <div class="no-pact-block" style="padding-left:24px">
+        <span style="font-size:18px">🤷</span>
+        <span>С государством <strong>Королевство Лунный Свет</strong> пакт «Мягкие Лапки» не заключён. Соглашение доступно для подписания в любое время.</span>
+      </div>
+    </div>
+
+    <div class="pact-card" style="margin-bottom:8px">
+      <div class="pact-card-header">
+        <div class="country-dot" style="background:#d97706"></div>
+        <div class="country-name">Гахлабат</div>
+        <span class="badge badge-neutral">Нет пакта</span>
+      </div>
+      <div class="no-pact-block" style="padding-left:24px">
+        <span style="font-size:18px">🤷</span>
+        <span>С государством <strong>Гахлабат</strong> пакт «Мягкие Лапки» не заключён. Соглашение доступно для подписания в любое время.</span>
+      </div>
+    </div>
+
+    <div class="pact-card" style="margin-bottom:8px">
+      <div class="pact-card-header">
+        <div class="country-dot" style="background:#ca8a04"></div>
+        <div class="country-name">МроелсоЛелл Топийа</div>
+        <span class="badge badge-neutral">Нет пакта</span>
+      </div>
+      <div class="no-pact-block" style="padding-left:24px">
+        <span style="font-size:18px">🤷</span>
+        <span>С государством <strong>МроелсоЛелл Топийа</strong> пакт «Мягкие Лапки» не заключён. Соглашение доступно для подписания в любое время.</span>
+      </div>
+    </div>
+
+    <div style="margin-top:24px;padding:16px 20px;background:rgba(0,212,170,0.03);border:1px solid var(--border);border-radius:var(--radius)">
+      <p style="font-family:var(--font-mono);font-size:12px;color:var(--text-muted)">
+        <span class="text-teal">// Чёрный список не ведётся.</span> Есть только система «Як ебнет», которая ведёт свой. Он автоматический.
+      </p>
+    </div>
+  </div>
+</section>
+
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">⚓ Суверенная IT-морская Республика Чиллград</div>
+      <div class="footer-motto">"Не трогай — и всем хорошо"</div>
+      <div class="footer-status">STATUS: IDLE/AFK · UPTIME: 99.97% · CODEX v4.0</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
