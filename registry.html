@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Реестр | Чиллград</title>
+  <title>Реестр государств | Соединённое Королевство Чиллград</title>
   <link rel="stylesheet" href="style.css">
+  
 </head>
 <body>
-
 <nav class="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
@@ -21,14 +21,12 @@
       <a href="constitution.html" class="nav-link">Конституция</a>
       <a href="doctrines.html" class="nav-link">Доктрины</a>
       <a href="symbols.html" class="nav-link">Символы</a>
-    
       <div class="nav-dropdown">
         <button class="nav-link nav-dropdown-btn">Ещё ▾</button>
         <div class="nav-dropdown-menu">
           <div class="nav-dd-label">Государство</div>
           <a href="history.html" class="nav-dropdown-item"><span class="di">📜</span>История</a>
           <a href="timeline.html" class="nav-dropdown-item"><span class="di">⏱️</span>Хронология</a>
-          <a href="armament.html" class="nav-dropdown-item"><span class="di">🎖️</span>Ъыьфзнщшп</a>
           <div class="nav-dd-divider"></div>
           <div class="nav-dd-label">Документы</div>
           <a href="economy.html" class="nav-dropdown-item"><span class="di">💰</span>Экономика</a>
@@ -41,23 +39,69 @@
           <div class="nav-dd-label">Граждане</div>
           <a href="citizenship.html" class="nav-dropdown-item"><span class="di">🪪</span>Гражданство</a>
           <a href="passport.html" class="nav-dropdown-item"><span class="di">📘</span>Паспорт</a>
-          <a href="registry.html" class="nav-dropdown-item"><span class="di">📋</span>Реестр</a>
+          <a href="registry.html" class="nav-dropdown-item  active"><span class="di">📋</span>Реестр государств</a>
         </div>
       </div>
     </div>
   </div>
 </nav>
 
+<section class="hero" style="padding:70px 0 60px">
+  <div class="container">
+    <div class="hero-badge">Дипломатический реестр · МИД Чиллграда</div>
+    <h1 class="hero-title" style="font-size:clamp(36px,6vw,68px)">Реестр государств</h1>
+    <p class="hero-desc" style="margin-bottom:0">Актуальный статус международных отношений Соединённого Королевства Чиллград. 13 государств.</p>
+  </div>
+</section>
 <section class="section">
   <div class="container">
+    <div class="stats-row" style="margin-bottom:40px">
+      <div class="stat-card"><div class="stat-value" style="color:var(--teal)">4</div><div class="stat-label">Пактов «Мягкие Лапки»</div></div>
+      <div class="stat-card"><div class="stat-value">2</div><div class="stat-label">Торговых соглашения</div></div>
+      <div class="stat-card"><div class="stat-value">3</div><div class="stat-label">Кандидата на пакт</div></div>
+      <div class="stat-card"><div class="stat-value" style="color:var(--warning)">4</div><div class="stat-label">На мониторинге</div></div>
+    </div>
+
+    <div class="section-heading" style="padding-top:0">
+      <div class="section-label">// Статусы</div>
+      <h2 class="section-title" style="font-size:24px">Система статусов реестра</h2>
+    </div>
+    <div class="grid-2" style="margin-bottom:40px">
+      <div class="card" style="border-color:rgba(0,212,170,0.3)"><div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><span class="badge badge-success">A — Высокий</span></div><p class="text-secondary" style="font-size:13px">Подписан Пакт «Мягкие Лапки». Активный дипломатический канал. Скидки на транзит и хостинг.</p></div>
+      <div class="card" style="border-color:rgba(0,212,170,0.2)"><div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><span class="badge badge-neutral">B — Стандартный</span></div><p class="text-secondary" style="font-size:13px">Торговое соглашение или соглашение о нейтральности. Пакт не подписан. Транзит по полному тарифу.</p></div>
+      <div class="card"><div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><span class="badge" style="background:rgba(107,148,186,0.15);color:var(--neutral)">C — Нейтральный</span></div><p class="text-secondary" style="font-size:13px">Дипломатический контакт установлен, соглашений нет. Переговоры в процессе или запланированы.</p></div>
+      <div class="card"><div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><span class="badge" style="background:rgba(245,197,24,0.1);color:var(--warning)">D — Мониторинг</span></div><p class="text-secondary" style="font-size:13px">Ограниченные данные. МИД ведёт наблюдение. Официальный контакт не установлен или прерван.</p></div>
+    </div>
+
     <div class="section-heading">
       <div class="section-label">// Реестр</div>
-      <h2 class="section-title">Реестр Чиллграда</h2>
-      <p class="section-desc">Страница в разработке. Данные реестров и официальных записей будут доступны позже.</p>
+      <h2 class="section-title" style="font-size:24px">Все 13 государств</h2>
     </div>
     <div class="card">
-      <div class="card-title">В разработке</div>
-      <p class="text-secondary" style="font-size:14px;line-height:1.75">Здесь будут публичные реестры, записи организаций и другие государственные реестровые данные.</p>
+      <table style="width:100%;border-collapse:collapse;font-size:14px">
+        <thead><tr style="border-bottom:1px solid var(--border-mid)">
+          <th style="text-align:left;padding:10px 12px;color:var(--teal);font-family:var(--font-mono);font-size:11px">#</th>
+          <th style="text-align:left;padding:10px 12px;color:var(--teal);font-family:var(--font-mono);font-size:11px">Государство</th>
+          <th style="text-align:left;padding:10px 12px;color:var(--teal);font-family:var(--font-mono);font-size:11px">Статус</th>
+          <th style="text-align:left;padding:10px 12px;color:var(--teal);font-family:var(--font-mono);font-size:11px">Документ</th>
+          <th style="text-align:left;padding:10px 12px;color:var(--teal);font-family:var(--font-mono);font-size:11px">Дата</th>
+        </tr></thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-muted)">01</td><td style="padding:10px 12px">Аквилония</td><td style="padding:10px 12px"><span class="badge badge-success">A</span></td><td style="padding:10px 12px;font-family:var(--font-mono);font-size:12px;color:var(--text-secondary)">Пакт v2.0 (ЧГ-МЛ-002)</td><td style="padding:10px 12px;color:var(--text-secondary)">23.05.2026</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-muted)">02</td><td style="padding:10px 12px">Фройделандия</td><td style="padding:10px 12px"><span class="badge badge-success">A</span></td><td style="padding:10px 12px;font-family:var(--font-mono);font-size:12px;color:var(--text-secondary)">Пакт v1.0 (ЧГ-МЛ-001)</td><td style="padding:10px 12px;color:var(--text-secondary)">25.05.2026</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-muted)">03</td><td style="padding:10px 12px">Блейсерланд</td><td style="padding:10px 12px"><span class="badge badge-success">A</span></td><td style="padding:10px 12px;font-family:var(--font-mono);font-size:12px;color:var(--text-secondary)">Пакт v3.0 (ЧГ-МЛ-003)</td><td style="padding:10px 12px;color:var(--text-secondary)">26.05.2026</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-muted)">04</td><td style="padding:10px 12px">Королевство Бретонния</td><td style="padding:10px 12px"><span class="badge badge-success">A</span></td><td style="padding:10px 12px;font-family:var(--font-mono);font-size:12px;color:var(--text-secondary)">Пакт v4.0 (ЧГ-МЛ-004)</td><td style="padding:10px 12px;color:var(--text-secondary)">26.05.2026</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-muted)">05</td><td style="padding:10px 12px">Дайтеденек</td><td style="padding:10px 12px"><span class="badge badge-neutral">B</span></td><td style="padding:10px 12px;font-family:var(--font-mono);font-size:12px;color:var(--text-secondary)">Соглашение «Западный Брейк»</td><td style="padding:10px 12px;color:var(--text-secondary)">2022</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-muted)">06</td><td style="padding:10px 12px">Бонниленд</td><td style="padding:10px 12px"><span class="badge badge-neutral">B</span></td><td style="padding:10px 12px;font-family:var(--font-mono);font-size:12px;color:var(--text-secondary)">Соглашение «Северный Штиль»</td><td style="padding:10px 12px;color:var(--text-secondary)">2022</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-muted)">07</td><td style="padding:10px 12px">Арборея</td><td style="padding:10px 12px"><span class="badge" style="background:rgba(107,148,186,0.15);color:var(--neutral)">C</span></td><td style="padding:10px 12px;font-family:var(--font-mono);font-size:12px;color:var(--text-secondary)">Дипломатическая нота</td><td style="padding:10px 12px;color:var(--text-secondary)">2024</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-muted)">08</td><td style="padding:10px 12px">Витания</td><td style="padding:10px 12px"><span class="badge" style="background:rgba(107,148,186,0.15);color:var(--neutral)">C</span></td><td style="padding:10px 12px;font-family:var(--font-mono);font-size:12px;color:var(--text-secondary)">Пакт на ратификации</td><td style="padding:10px 12px;color:var(--text-secondary)">2025</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-muted)">09</td><td style="padding:10px 12px">Королевство Лунный Свет</td><td style="padding:10px 12px"><span class="badge" style="background:rgba(107,148,186,0.15);color:var(--neutral)">C</span></td><td style="padding:10px 12px;font-family:var(--font-mono);font-size:12px;color:var(--text-secondary)">Предварительные переговоры</td><td style="padding:10px 12px;color:var(--text-secondary)">2025</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-muted)">10</td><td style="padding:10px 12px">Византийская Федерация</td><td style="padding:10px 12px"><span class="badge" style="background:rgba(245,197,24,0.1);color:var(--warning)">D</span></td><td style="padding:10px 12px;font-family:var(--font-mono);font-size:12px;color:var(--text-secondary)">Мониторинг (Чёрноморский коридор)</td><td style="padding:10px 12px;color:var(--text-secondary)">2024</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-muted)">11</td><td style="padding:10px 12px">Гахлабат</td><td style="padding:10px 12px"><span class="badge" style="background:rgba(245,197,24,0.1);color:var(--warning)">D</span></td><td style="padding:10px 12px;font-family:var(--font-mono);font-size:12px;color:var(--text-secondary)">Мониторинг (Суэцкий интерес)</td><td style="padding:10px 12px;color:var(--text-secondary)">2025</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-muted)">12</td><td style="padding:10px 12px">Мрое Лселл Топийа</td><td style="padding:10px 12px"><span class="badge" style="background:rgba(245,197,24,0.1);color:var(--warning)">D</span></td><td style="padding:10px 12px;font-family:var(--font-mono);font-size:12px;color:var(--text-secondary)">Запрос МИД (без ответа)</td><td style="padding:10px 12px;color:var(--text-secondary)">2025</td></tr>
+          <tr><td style="padding:10px 12px;color:var(--text-muted)">13</td><td style="padding:10px 12px">Неизвестный актор (вост.)</td><td style="padding:10px 12px"><span class="badge" style="background:rgba(245,197,24,0.1);color:var(--warning)">D</span></td><td style="padding:10px 12px;font-family:var(--font-mono);font-size:12px;color:var(--text-secondary)">Инцидент 2025 (акватория)</td><td style="padding:10px 12px;color:var(--text-secondary)">2025</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
@@ -65,12 +109,11 @@
 <footer class="footer">
   <div class="container">
     <div class="footer-inner">
-      <div class="footer-brand">⚓ Суверенная IT-морская Республика Чиллград</div>
-      <div class="footer-motto">"Не трогай — и всем хорошо"</div>
-      <div class="footer-status">STATUS: IDLE/AFK · UPTIME: 99.97% · CODEX v4.0</div>
+      <div class="footer-brand">⚓ Соединённое Королевство Чиллград</div>
+      <div class="footer-motto">«Беречь наследие, не нарушая покоя»</div>
+      <div class="footer-status">STATUS: IDLE/AFK · UPTIME: 99.97% · КОНСТИТУЦИОННЫЙ АКТ 2026</div>
     </div>
   </div>
 </footer>
-
 </body>
 </html>

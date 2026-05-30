@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Морской кодекс | Чиллград</title>
+  <title>Морской кодекс | Соединённое Королевство Чиллград</title>
   <link rel="stylesheet" href="style.css">
+  
 </head>
 <body>
-
 <nav class="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
@@ -21,14 +21,12 @@
       <a href="constitution.html" class="nav-link">Конституция</a>
       <a href="doctrines.html" class="nav-link">Доктрины</a>
       <a href="symbols.html" class="nav-link">Символы</a>
-    
       <div class="nav-dropdown">
         <button class="nav-link nav-dropdown-btn">Ещё ▾</button>
         <div class="nav-dropdown-menu">
           <div class="nav-dd-label">Государство</div>
           <a href="history.html" class="nav-dropdown-item"><span class="di">📜</span>История</a>
           <a href="timeline.html" class="nav-dropdown-item"><span class="di">⏱️</span>Хронология</a>
-          <a href="armament.html" class="nav-dropdown-item"><span class="di">🎖️</span>Ъыьфзнщшп</a>
           <div class="nav-dd-divider"></div>
           <div class="nav-dd-label">Документы</div>
           <a href="economy.html" class="nav-dropdown-item"><span class="di">💰</span>Экономика</a>
@@ -36,41 +34,125 @@
           <div class="nav-dd-divider"></div>
           <div class="nav-dd-label">Право</div>
           <a href="criminal-code.html" class="nav-dropdown-item"><span class="di">⚖️</span>Уголовный кодекс</a>
-          <a href="maritime-code.html" class="nav-dropdown-item"><span class="di">⚓</span>Морской кодекс</a>
+          <a href="maritime-code.html" class="nav-dropdown-item  active"><span class="di">⚓</span>Морской кодекс</a>
           <div class="nav-dd-divider"></div>
           <div class="nav-dd-label">Граждане</div>
           <a href="citizenship.html" class="nav-dropdown-item"><span class="di">🪪</span>Гражданство</a>
           <a href="passport.html" class="nav-dropdown-item"><span class="di">📘</span>Паспорт</a>
-          <a href="registry.html" class="nav-dropdown-item"><span class="di">📋</span>Реестр</a>
+          <a href="registry.html" class="nav-dropdown-item"><span class="di">📋</span>Реестр государств</a>
         </div>
       </div>
     </div>
   </div>
 </nav>
 
+<section class="hero" style="padding:70px 0 60px">
+  <div class="container">
+    <div class="hero-badge">Морское право · Акватория Королевства</div>
+    <h1 class="hero-title" style="font-size:clamp(36px,6vw,68px)">Морской кодекс</h1>
+    <p class="hero-desc" style="margin-bottom:0">Правила прохода через акваторию Соединённого Королевства Чиллград. Зона СУДС «Штиль-Контроль».</p>
+  </div>
+</section>
 <section class="section">
   <div class="container">
+
+    <div class="section-heading" style="padding-top:0">
+      <div class="section-label">// Юрисдикция</div>
+      <h2 class="section-title" style="font-size:24px">Морская зона</h2>
+    </div>
+    <div class="grid-3" style="margin-bottom:40px">
+      <div class="card" style="border-color:rgba(0,212,170,0.3)">
+        <div class="card-icon">🌊</div>
+        <div class="card-title">24 морские мили</div>
+        <p class="text-secondary" style="font-size:14px">Территориальное море плюс прилежащая зона. Полная юрисдикция Королевства. СУДС активна на всём протяжении.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📡</div>
+        <div class="card-title">Мониторинг 24/7</div>
+        <p class="text-secondary" style="font-size:14px">Радары, лидары, AIS-анализ, подводные сенсоры. Каждое судно идентифицируется в течение 90 секунд от момента входа в зону.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤖</div>
+        <div class="card-title">Автоматизированное управление</div>
+        <p class="text-secondary" style="font-size:14px">СУДС выдаёт маршруты, управляет потоком. Оператор-человек подключается только при эскалации (Шаг 2 процедуры перехвата).</p>
+      </div>
+    </div>
+
     <div class="section-heading">
-      <div class="section-label">// Морской кодекс</div>
-      <h2 class="section-title">Морской кодекс Чиллграда</h2>
-      <p class="section-desc">Страница в разработке. Правила мореплавания и портовой логистики будут опубликованы позже.</p>
+      <div class="section-label">// Правила прохода</div>
+      <h2 class="section-title" style="font-size:24px">Процедура входа в акваторию</h2>
+    </div>
+    <div class="card" style="margin-bottom:32px">
+      <div class="card-title">Стандартный порядок для гражданских судов</div>
+      <div style="display:flex;flex-direction:column;gap:12px;margin-top:20px">
+        <div style="border-left:3px solid var(--teal);padding-left:16px">
+          <strong style="color:var(--text-primary)">1. Идентификация</strong>
+          <p class="text-secondary" style="font-size:14px;margin-top:4px">Подать запрос через маяк СУДС-01 (канал VHF-16) не позднее чем за 4 часа до входа в зону. Указать: тип судна, тоннаж, флаг, порт назначения.</p>
+        </div>
+        <div style="border-left:3px solid var(--teal);padding-left:16px">
+          <strong style="color:var(--text-primary)">2. Оплата тарифа «Чилловый»</strong>
+          <p class="text-secondary" style="font-size:14px;margin-top:4px">Автоматический расчёт через смарт-контракт на основе тоннажа. Оплата в STL или конвертируемой валюте. Партнёры по Пакту получают скидку 25–100%.</p>
+        </div>
+        <div style="border-left:3px solid var(--teal);padding-left:16px">
+          <strong style="color:var(--text-primary)">3. Следование указанному маршруту</strong>
+          <p class="text-secondary" style="font-size:14px;margin-top:4px">СУДС выдаёт безопасный маршрут с учётом текущей обстановки. Отклонение от курса > 0,5 морских мили автоматически активирует протокол предупреждения.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:32px">
+      <div class="card-title">Тарифная сетка «Чилловый»</div>
+      <table style="width:100%;border-collapse:collapse;font-size:14px;margin-top:16px">
+        <thead><tr style="border-bottom:1px solid var(--border-mid)">
+          <th style="text-align:left;padding:8px 12px;color:var(--teal);font-family:var(--font-mono);font-size:11px">Тоннаж</th>
+          <th style="text-align:right;padding:8px 12px;color:var(--teal);font-family:var(--font-mono);font-size:11px">Стандарт</th>
+          <th style="text-align:right;padding:8px 12px;color:var(--teal);font-family:var(--font-mono);font-size:11px">Партнёр</th>
+          <th style="text-align:right;padding:8px 12px;color:var(--teal);font-family:var(--font-mono);font-size:11px">Аквилония</th>
+        </tr></thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px">До 500 т (малый)</td><td style="padding:8px 12px;text-align:right;font-family:var(--font-mono)">50 STL</td><td style="padding:8px 12px;text-align:right;font-family:var(--font-mono)">16 STL</td><td style="padding:8px 12px;text-align:right;font-family:var(--font-mono)">Порт. сборы</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px">500–5 000 т (средний)</td><td style="padding:8px 12px;text-align:right;font-family:var(--font-mono)">200 STL</td><td style="padding:8px 12px;text-align:right;font-family:var(--font-mono)">66 STL</td><td style="padding:8px 12px;text-align:right;font-family:var(--font-mono)">Порт. сборы</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px">5 000–50 000 т (крупный)</td><td style="padding:8px 12px;text-align:right;font-family:var(--font-mono)">800 STL</td><td style="padding:8px 12px;text-align:right;font-family:var(--font-mono)">264 STL</td><td style="padding:8px 12px;text-align:right;font-family:var(--font-mono)">Порт. сборы</td></tr>
+          <tr><td style="padding:8px 12px">> 50 000 т (тяжёлый)</td><td style="padding:8px 12px;text-align:right;font-family:var(--font-mono)">2 000 STL</td><td style="padding:8px 12px;text-align:right;font-family:var(--font-mono)">660 STL</td><td style="padding:8px 12px;text-align:right;font-family:var(--font-mono)">Порт. сборы</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-heading">
+      <div class="section-label">// Запреты</div>
+      <h2 class="section-title" style="font-size:24px">Запрещённые действия в зоне СУДС</h2>
+    </div>
+    <div class="card" style="margin-bottom:32px">
+      <ul style="color:var(--text-secondary);font-size:14px;line-height:2.3;margin-left:20px">
+        <li>Вход без прохождения идентификации и оплаты тарифа</li>
+        <li>Проведение военных манёвров или учений без письменного уведомления Министерства транзита и тарифов (МТТ) за 72 часа</li>
+        <li>Намеренное создание помех навигационным системам маяков</li>
+        <li>Сброс балластных вод в территориальном море без разрешения МТЦИ</li>
+        <li>Перевозка веществ, создающих угрозу подводной инфраструктуре дата-центров</li>
+        <li>Несообщение о чрезвычайных ситуациях на борту</li>
+        <li>Использование судна в качестве военной платформы без уведомления</li>
+      </ul>
+    </div>
+
+    <div class="section-heading">
+      <div class="section-label">// Гуманитарный статус</div>
+      <h2 class="section-title" style="font-size:24px">Зоны мира и убежище</h2>
     </div>
     <div class="card">
-      <div class="card-title">В разработке</div>
-      <p class="text-secondary" style="font-size:14px;line-height:1.75">Здесь будет размещён морской кодекс, регламент портовой деятельности и правила для судов.</p>
+      <p class="text-secondary" style="font-size:14px;line-height:1.9">Дипломатические представительства и порт «Западный Брейк» обладают статусом зон мира. Любому лицу, добровольно сдавшему оружие при входе в порт, предоставляется гуманитарное убежище на срок до рассмотрения заявки. Принудительная депортация запрещена до вынесения официального решения Кабинета министров.</p>
     </div>
+
   </div>
 </section>
 
 <footer class="footer">
   <div class="container">
     <div class="footer-inner">
-      <div class="footer-brand">⚓ Суверенная IT-морская Республика Чиллград</div>
-      <div class="footer-motto">"Не трогай — и всем хорошо"</div>
-      <div class="footer-status">STATUS: IDLE/AFK · UPTIME: 99.97% · CODEX v4.0</div>
+      <div class="footer-brand">⚓ Соединённое Королевство Чиллград</div>
+      <div class="footer-motto">«Беречь наследие, не нарушая покоя»</div>
+      <div class="footer-status">STATUS: IDLE/AFK · UPTIME: 99.97% · КОНСТИТУЦИОННЫЙ АКТ 2026</div>
     </div>
   </div>
 </footer>
-
 </body>
 </html>

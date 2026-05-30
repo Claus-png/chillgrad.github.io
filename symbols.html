@@ -3,98 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Символы — Чиллград</title>
+  <title>Государственная символика | Соединённое Королевство Чиллград</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* Flag */
-    .flag-display { display: flex; flex-direction: column; align-items: center; gap: 24px; }
-    .flag-lg {
-      width: 300px; height: 200px; border-radius: 6px;
-      overflow: hidden; border: 1px solid var(--border-mid);
-      box-shadow: 0 0 32px rgba(0,212,170,0.08);
-      position: relative;
-    }
-    .fl-s { width: 100%; }
-    .fl-s1 { height: 33.33%; background: #0e2358; }
-    .fl-s2 { height: 33.34%; background: #3d4f66; display: flex; align-items: center; justify-content: center; }
-    .fl-s3 { height: 33.33%; background: #07070e; }
-    .fl-hedgehog { font-size: 38px; filter: brightness(0) invert(1); opacity: 0.88; }
-
-    /* Crest */
-    .crest-display {
-      display: flex; flex-direction: column; align-items: center;
-    }
-    .crest-body {
-      width: 220px; height: 220px;
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 2px; border: 2px solid var(--border-mid);
-      border-bottom: none; border-radius: 10px 10px 0 0;
-      overflow: hidden; position: relative;
-    }
-    .cq { display: flex; align-items: center; justify-content: center; font-size: 42px; }
-    .cq1 { background: #0e2358; }
-    .cq2 { background: #080808; }
-    .cq3 { background: #1c2a3a; }
-    .cq4 { background: #0f1e2e; }
-    .c-center {
-      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-      width: 64px; height: 64px; border-radius: 50%;
-      background: rgba(5,12,26,0.96); border: 2px solid var(--border-mid);
-      display: flex; align-items: center; justify-content: center; font-size: 34px;
-    }
-    .crest-bottom {
-      width: 220px; background: #0a1830;
-      border: 2px solid var(--border-mid); border-top: none;
-      border-radius: 0 0 50% 50%; padding: 14px 20px 20px;
-      text-align: center;
-    }
-    .crest-bottom span { font-family: var(--font-mono); font-size: 9px; color: var(--teal); letter-spacing: 1.5px; line-height: 1.6; display: block; }
-    .crest-crown { text-align: center; font-size: 32px; margin-bottom: 6px; }
-    .laptop-crown { filter: drop-shadow(0 0 8px rgba(0,212,170,0.4)); }
-
-    /* Seal */
-    .seal-display {
-      width: 200px; height: 200px; border-radius: 50%;
-      background: rgba(11,20,42,0.9);
-      border: 3px solid var(--border-mid);
-      position: relative; display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 0 0 8px rgba(0,212,170,0.04), 0 0 0 9px rgba(0,212,170,0.12);
-    }
-    .seal-inner { text-align: center; }
-    .seal-icon { font-size: 48px; display: block; margin-bottom: 6px; }
-    .seal-text {
-      position: absolute; inset: 0;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .seal-ring {
-      width: 180px; height: 180px; border-radius: 50%;
-      border: 1px dashed rgba(0,212,170,0.25);
-      position: absolute;
-    }
-    .seal-curved-text {
-      font-family: var(--font-mono); font-size: 8px;
-      color: var(--teal); letter-spacing: 2px;
-      text-transform: uppercase; white-space: nowrap;
-    }
-    svg.seal-svg {
-      position: absolute; inset: 0; width: 100%; height: 100%;
-    }
-
-    /* Dress code */
-    .dress-item { padding: 20px 0; border-bottom: 1px solid var(--border); display: flex; gap: 20px; }
-    .dress-item:last-child { border-bottom: none; }
-    .dress-role { min-width: 200px; }
-    .dress-role-name { font-family: var(--font-display); font-size: 15px; color: var(--text-primary); margin-bottom: 4px; }
-    .dress-detail { color: var(--text-secondary); font-size: 13px; line-height: 1.75; }
-
-    @media (max-width: 640px) {
-      .dress-item { flex-direction: column; }
-      .dress-role { min-width: auto; }
-    }
-  </style>
+  
 </head>
 <body>
-
 <nav class="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
@@ -108,14 +21,12 @@
       <a href="constitution.html" class="nav-link">Конституция</a>
       <a href="doctrines.html" class="nav-link">Доктрины</a>
       <a href="symbols.html" class="nav-link active">Символы</a>
-    
       <div class="nav-dropdown">
         <button class="nav-link nav-dropdown-btn">Ещё ▾</button>
         <div class="nav-dropdown-menu">
           <div class="nav-dd-label">Государство</div>
           <a href="history.html" class="nav-dropdown-item"><span class="di">📜</span>История</a>
           <a href="timeline.html" class="nav-dropdown-item"><span class="di">⏱️</span>Хронология</a>
-          <a href="armament.html" class="nav-dropdown-item"><span class="di">🎖️</span>Ъыьфзнщшп</a>
           <div class="nav-dd-divider"></div>
           <div class="nav-dd-label">Документы</div>
           <a href="economy.html" class="nav-dropdown-item"><span class="di">💰</span>Экономика</a>
@@ -128,7 +39,7 @@
           <div class="nav-dd-label">Граждане</div>
           <a href="citizenship.html" class="nav-dropdown-item"><span class="di">🪪</span>Гражданство</a>
           <a href="passport.html" class="nav-dropdown-item"><span class="di">📘</span>Паспорт</a>
-          <a href="registry.html" class="nav-dropdown-item"><span class="di">📋</span>Реестр</a>
+          <a href="registry.html" class="nav-dropdown-item"><span class="di">📋</span>Реестр государств</a>
         </div>
       </div>
     </div>
@@ -137,200 +48,121 @@
 
 <section class="hero" style="padding:70px 0 60px">
   <div class="container">
-    <div class="hero-badge">Государственная символика · v4.0</div>
-    <h1 class="hero-title" style="font-size:clamp(36px,6vw,68px)">Символы</h1>
-    <p class="hero-desc" style="margin-bottom:0">Официальное описание Государственного флага и Государственной печати. Их структура, легенда и визуальные коды утверждены Диванным Советом.</p>
+    <div class="hero-badge">Официальная символика</div>
+    <h1 class="hero-title" style="font-size:clamp(36px,6vw,68px)">Государственная символика</h1>
+    <p class="hero-desc" style="margin-bottom:0">Флаг, герб, печать, гимн и девиз Соединённого Королевства Чиллград.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
 
-    <!-- FLAG & SEAL -->
+    <!-- ФЛАГ -->
+    <div class="section-heading" style="padding-top:0">
+      <div class="section-label">// Символ 01</div>
+      <h2 class="section-title" style="font-size:24px">Государственный флаг</h2>
+    </div>
+    <div class="grid-2" style="align-items:start;margin-bottom:48px">
+      <div style="text-align:center">
+        <img src="assets/флаг.jpg" alt="Флаг Чиллграда" style="max-width:100%;border-radius:var(--radius);border:1px solid var(--border-mid)">
+      </div>
+      <div class="card">
+        <div class="card-title">Описание флага</div>
+        <p class="text-secondary" style="font-size:14px;line-height:1.9;margin-bottom:16px">
+          Две горизонтальные полосы равной высоты:<br>
+          — <strong>Верхняя:</strong> голубая (морская безопасность, доступность);<br>
+          — <strong>Нижняя:</strong> тёмно-зелёная (стабильность, природа, отдых).
+        </p>
+        <p class="text-secondary" style="font-size:14px;line-height:1.9;margin-bottom:16px">
+          В центре — государственная эмблема: <strong>собачья лапа, совмещённая с якорем</strong>, центр лапы — золотой диск.
+        </p>
+        <div style="background:rgba(0,212,170,0.06);border:1px solid rgba(0,212,170,0.15);border-radius:8px;padding:12px;font-size:13px;color:var(--text-secondary)">
+          ⚠️ Правило использования: флаг вывешивается только в безветренную погоду. В шторм убирается. <em>Даже флаг должен быть в комфорте.</em>
+        </div>
+      </div>
+    </div>
+
+    <!-- ГЕРБ -->
     <div class="section-heading">
-      <div class="section-label">// 5.1 — Государственная символика</div>
-      <h2 class="section-title">Флаг и Печать</h2>
+      <div class="section-label">// Символ 02</div>
+      <h2 class="section-title" style="font-size:24px">Государственный герб</h2>
     </div>
-
-    <div class="grid-2" style="gap:32px;margin-bottom:60px;align-items:start">
-
-      <!-- FLAG -->
-      <div class="card" style="text-align:center">
-        <div class="card-title" style="margin-bottom:24px">🏴 Государственный флаг</div>
-        <div style="display:flex;justify-content:center;margin-bottom:24px">
-          <img src="assets/флаг.jpg" alt="Государственный флаг Чиллграда" style="width:240px;height:auto;border:1px solid var(--border);border-radius:16px;object-fit:cover;">
-        </div>
-        <div style="margin-top:24px;text-align:left">
-          <p class="text-secondary" style="font-size:14px;line-height:1.8;margin-bottom:16px">Государственный флаг представляет собой прямоугольное полотнище, разделённое горизонтально на две равновеликие полосы.</p>
-          <table style="width:100%;font-family:var(--font-ui);font-size:13px">
-            <tr style="border-bottom:1px solid var(--border)">
-              <td style="padding:8px 4px;color:var(--text-muted)">Верхняя полоса</td>
-              <td style="padding:8px 4px;color:var(--text-secondary)">Светло-голубая (#83BFE6) — небесный цвет</td>
-            </tr>
-            <tr style="border-bottom:1px solid var(--border)">
-              <td style="padding:8px 4px;color:var(--text-muted)">Нижняя полоса</td>
-              <td style="padding:8px 4px;color:var(--text-secondary)">Тёмно-зелёная (#0B4C3A) — изумрудно-хвойный цвет</td>
-            </tr>
-            <tr>
-              <td style="padding:8px 4px;color:var(--text-muted)">Центральная эмблема</td>
-              <td style="padding:8px 4px;color:var(--text-secondary)">Серебристо-белый якорь с тёмно-синим контуром, золотая лапа с пятью острыми когтями и золотой диск в центре.</td>
-            </tr>
-          </table>
-          <p class="text-muted" style="font-size:12px;margin-top:12px;font-style:italic">Примечание: эмблема пересекает границу полос, объединяя море и лес, технологии и природу.</p>
-        </div>
-      </div>
-
-      <!-- SEAL -->
-      <div class="card" style="text-align:center">
-        <div class="card-title" style="margin-bottom:24px">🔵 Государственная печать</div>
-        <div style="display:flex;justify-content:center;margin-bottom:24px">
-          <img src="assets/печать.png" alt="Государственная печать Чиллграда" style="width:180px;height:auto;border-radius:999px;border:2px solid var(--border);background:rgba(255,255,255,0.03);">
-        </div>
-        <div style="text-align:left">
-          <p class="text-secondary" style="font-size:13px;line-height:1.75;margin-bottom:10px">Правильная круглая печать. Обрамлена двойным линейным кантом. Внешняя легенда: верхняя дуга — «СУВЕРЕННАЯ IT-МОРСКАЯ РЕСПУБЛИКА ЧИЛЛГРАД», нижняя — «AFK CITY».</p>
-          <p class="text-secondary" style="font-size:13px;line-height:1.75;margin-bottom:10px">По сторонам от текста размещены геральдические разделители: символ беспроводной связи и пиксельный ромб. Внутри — диагональный морской якорь и след лапы.</p>
-          <p class="text-muted" style="font-size:12px">Стиль — монохромный, черно-белый, винтажная гравюра.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- ANTHEM INFO -->
     <div class="card" style="margin-bottom:48px">
-      <div class="card-title">🎵 Государственный Гимн</div>
-      <div style="display:flex;align-items:center;gap:28px;flex-wrap:wrap">
-        <div style="width:80px;height:80px;background:rgba(124,92,247,0.1);border:1px solid rgba(124,92,247,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:36px;flex-shrink:0">🎧</div>
-        <div>
-          <div class="card-heading" style="margin-bottom:6px">Лоу-фай трек без слов</div>
-          <p class="text-secondary" style="font-size:14px;line-height:1.75">Продолжительность: <span class="mono text-teal">3 минуты 22 секунды</span>. Слов нет. Не нужны. Тихий бит, дождь за окном, тёплый чай. Играет только на официальных церемониях, которых почти нет.</p>
-          <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
-            <span class="badge badge-purple">Lo-fi</span>
-            <span class="badge badge-neutral">Без слов</span>
-            <span class="badge badge-neutral">3:22</span>
-          </div>
+      <div class="card-title">Описание герба</div>
+      <p class="text-secondary" style="font-size:14px;line-height:1.9;margin-bottom:20px">Щит разделён на четыре равные части:</p>
+      <div class="grid-2" style="gap:16px;margin-bottom:20px">
+        <div style="background:rgba(0,212,170,0.04);border:1px solid var(--border);border-radius:8px;padding:16px">
+          <div style="font-family:var(--font-mono);font-size:11px;color:var(--teal);margin-bottom:8px">I (верх-лево)</div>
+          <strong style="color:var(--text-primary)">Морской якорь</strong> на тёмно-синем фоне.<br>
+          <span class="text-secondary" style="font-size:13px">Символ: устойчивость, морская держава.</span>
+        </div>
+        <div style="background:rgba(0,212,170,0.04);border:1px solid var(--border);border-radius:8px;padding:16px">
+          <div style="font-family:var(--font-mono);font-size:11px;color:var(--teal);margin-bottom:8px">II (верх-право)</div>
+          <strong style="color:var(--text-primary)">Консоль «> ./chill.sh»</strong> на чёрном фоне.<br>
+          <span class="text-secondary" style="font-size:13px">Символ: технологический суверенитет.</span>
+        </div>
+        <div style="background:rgba(0,212,170,0.04);border:1px solid var(--border);border-radius:8px;padding:16px">
+          <div style="font-family:var(--font-mono);font-size:11px;color:var(--teal);margin-bottom:8px">III (низ-лево)</div>
+          <strong style="color:var(--text-primary)">Собачья лапа</strong> в расслабленном положении на сером фоне.<br>
+          <span class="text-secondary" style="font-size:13px">Символ: идентичность народа, дружелюбие.</span>
+        </div>
+        <div style="background:rgba(0,212,170,0.04);border:1px solid var(--border);border-radius:8px;padding:16px">
+          <div style="font-family:var(--font-mono);font-size:11px;color:var(--teal);margin-bottom:8px">IV (низ-право)</div>
+          <strong style="color:var(--text-primary)">Чашка чая с паром</strong> в форме знака Wi-Fi на белом фоне.<br>
+          <span class="text-secondary" style="font-size:13px">Символ: благосостояние, связь, культура.</span>
         </div>
       </div>
+      <p class="text-secondary" style="font-size:14px;line-height:1.9">
+        В центре щита: белый силуэт <strong>морского ежа</strong> (оборонная доктрина).<br>
+        Над щитом: открытый ноутбук (вместо короны).<br>
+        Под щитом: лента с девизом <strong>«Беречь наследие, не нарушая покоя»</strong>.
+      </p>
     </div>
 
-    <div class="divider"></div>
-
-    <!-- HOLIDAYS -->
+    <!-- ПЕЧАТЬ -->
     <div class="section-heading">
-      <div class="section-label">// 5.2 — Государственные праздники</div>
-      <h2 class="section-title">Национальный календарь</h2>
+      <div class="section-label">// Символ 03</div>
+      <h2 class="section-title" style="font-size:24px">Государственная печать</h2>
     </div>
-
-    <div class="card" style="padding:8px 28px;margin-bottom:48px">
-      <div class="holiday">
-        <div class="holiday-date">12 января</div>
-        <div>
-          <div class="holiday-name">День Первого Дрейфа 🚢</div>
-          <div class="holiday-desc">Годовщина основания Чиллграда. Официальная программа: никакой официальной программы. Государственные службы в режиме IDLE. Обязательный элемент: чай в 18:00 одновременно всем народом.</div>
-        </div>
+    <div class="grid-2" style="margin-bottom:48px;align-items:start">
+      <div style="text-align:center">
+        <img src="assets/печать.png" alt="Печать Чиллграда" style="max-width:280px;border-radius:50%;border:1px solid var(--border-mid)">
       </div>
-      <div class="holiday">
-        <div class="holiday-date">3 марта</div>
-        <div>
-          <div class="holiday-name">День Святого Игнора 🙉</div>
-          <div class="holiday-desc">Официальный праздник игнорирования раздражителей. Граждане вправе не отвечать на любые сообщения и звонки, включая правительственные. Государство не обижается. Государство понимает.</div>
-        </div>
-      </div>
-      <div class="holiday">
-        <div class="holiday-date">7 апреля</div>
-        <div>
-          <div class="holiday-name">Праздник Первого Кабельтова 🔌</div>
-          <div class="holiday-desc">День, когда Чиллград провёл первый морской кабель и подключился к внешнему интернету. Отмечается просмотром мемов и скачиванием чего-нибудь большого — просто потому что можно.</div>
-        </div>
-      </div>
-      <div class="holiday">
-        <div class="holiday-date">19 июня</div>
-        <div>
-          <div class="holiday-name">День Тихой Гавани 📋</div>
-          <div class="holiday-desc">День подписания Конституции. Церемония: Верховный Администратор зачитывает первую статью («Никто никого не трогает»), все расходятся. Продолжительность церемонии: <span class="mono text-teal">4 минуты</span>.</div>
-        </div>
-      </div>
-      <div class="holiday">
-        <div class="holiday-date">31 октября</div>
-        <div>
-          <div class="holiday-name">Ночь Полного АФК 🌙</div>
-          <div class="holiday-desc">Единственный день, когда все серверы уходят в технический перерыв. Система «Як ебнет» в эту ночь <strong class="text-teal">не спит</strong>. Только она.</div>
-        </div>
-      </div>
-      <div class="holiday">
-        <div class="holiday-date">25 декабря</div>
-        <div>
-          <div class="holiday-name">День Морского Ежа 🦔</div>
-          <div class="holiday-desc">Главный военный праздник, который не выглядит как военный праздник. Никаких парадов. В 00:00 система «Як ебнет» проходит самодиагностику. Граждане слышат тихий гул из-под земли и знают: всё в порядке.</div>
-        </div>
+      <div class="card">
+        <div class="card-title">Описание печати</div>
+        <p class="text-secondary" style="font-size:14px;line-height:1.9">
+          Форма: круглая, монохромная (чёрный оттиск на белом).<br><br>
+          <strong>Центр:</strong> собачья лапа, совмещённая с якорем.<br>
+          <strong>Верхняя дуга:</strong> «СОЕДИНЁННОЕ КОРОЛЕВСТВО ЧИЛЛГРАД».<br>
+          <strong>Нижняя дуга:</strong> «AFK CITY».<br>
+          <strong>Декор:</strong> сигнальные волны и пиксельные точки по бокам.<br><br>
+          Статус: утверждена и внесена в государственный реестр.
+        </p>
       </div>
     </div>
 
-    <div class="divider"></div>
-
-    <!-- DRESS CODE -->
+    <!-- ДЕВИЗ -->
     <div class="section-heading">
-      <div class="section-label">// 5.3 — Дресс-код правительства</div>
-      <h2 class="section-title">Официально расслабленный суверенитет</h2>
-      <p class="section-desc">Главное сообщение: «Мы пришли не воевать, но мы пришли».</p>
+      <div class="section-label">// Символ 04</div>
+      <h2 class="section-title" style="font-size:24px">Девиз государства</h2>
+    </div>
+    <div class="card" style="text-align:center;padding:48px;margin-bottom:48px">
+      <div style="font-family:var(--font-display);font-size:clamp(22px,4vw,40px);color:var(--teal);margin-bottom:20px">«Беречь наследие, не нарушая покоя»</div>
+      <p class="text-secondary" style="font-size:15px;max-width:600px;margin:0 auto;line-height:1.9">
+        Это не просто слоган — это законодательный принцип. Любой нормативный акт, противоречащий духу данного девиза, признаётся неконституционным. Девиз олицетворяет сохранение исторической преемственности и обеспечение всеобщего блага через соблюдение личных границ и минимизацию деструктивной деятельности.
+      </p>
     </div>
 
-    <div class="card" style="padding:8px 28px;margin-bottom:32px">
-      <div class="dress-item">
-        <div class="dress-role">
-          <div class="dress-role-name">👑 Верховный Администратор</div>
-          <div style="font-family:var(--font-mono);font-size:11px;color:var(--teal)">Teddy Bear</div>
-        </div>
-        <div class="dress-detail">
-          Тёмно-синий кардиган свободного кроя (не пиджак — принципиально) · Чёрные брюки классического кроя · Белая рубашка, верхняя пуговица расстёгнута, без галстука · Государственная печать на нагрудном кармане в виде нашивки · Наушники на шее (сняты из уважения, но присутствуют — символ) · Обувь: <strong class="text-teal">тёмные кеды. Без исключений.</strong>
-        </div>
-      </div>
-      <div class="dress-item">
-        <div class="dress-role">
-          <div class="dress-role-name">🛋️ Диванный Совет</div>
-          <div style="font-family:var(--font-mono);font-size:11px;color:var(--teal)">На выездных заседаниях</div>
-        </div>
-        <div class="dress-detail">
-          Тёмно-серые толстовки · Надпись на спине: <span class="mono text-teal">«ЧИЛЛГРАД // ДИВАННЫЙ СОВЕТ // AFK CITY»</span> · Спереди: номер члена совета и государственная печать · У каждого: термокружка с логотипом государства · Пледы разрешены при переговорах длиннее 2 часов.
-        </div>
-      </div>
-      <div class="dress-item">
-        <div class="dress-role">
-          <div class="dress-role-name">🌐 МИД</div>
-          <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-muted)">Министерство внешних связей</div>
-        </div>
-        <div class="dress-detail">
-          Тёмный деловой стиль без галстука. Обязательная нашивка МИД. Строгость есть — лишней формальности нет.
-        </div>
-      </div>
-      <div class="dress-item">
-        <div class="dress-role">
-          <div class="dress-role-name">💻 Минтех</div>
-          <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-muted)">Министерство технологий</div>
-        </div>
-        <div class="dress-detail">
-          Чёрная худи, карго-брюки. Ноутбук открыт всегда — это не грубость, это должностная необходимость.
-        </div>
-      </div>
-      <div class="dress-item">
-        <div class="dress-role">
-          <div class="dress-role-name">🍵 Минчай</div>
-          <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-muted)">Министерство чайного обеспечения</div>
-        </div>
-        <div class="dress-detail">
-          Белый фартук поверх любой одежды. Это одновременно и дресс-код, и должностная инструкция.
-        </div>
-      </div>
+    <!-- ГИМН -->
+    <div class="section-heading">
+      <div class="section-label">// Символ 05</div>
+      <h2 class="section-title" style="font-size:24px">Государственный гимн</h2>
     </div>
-
-    <!-- FORBIDDEN -->
-    <div class="card" style="border-color:rgba(255,69,69,0.2);background:rgba(255,69,69,0.03)">
-      <div class="card-title" style="color:var(--danger)">🚫 Запрещено</div>
-      <div style="display:flex;flex-wrap:wrap;gap:10px">
-        <span class="badge badge-danger">Военная форма</span>
-        <span class="badge badge-danger">Галстуки</span>
-        <span class="badge badge-danger">Пиджаки без нашивки Чиллграда</span>
-        <span class="badge badge-danger">Громкий парфюм</span>
-        <span class="badge badge-danger">Погоны любого рода</span>
-      </div>
+    <div class="card" style="margin-bottom:32px">
+      <div class="card-title">Инструментальный трек</div>
+      <p class="text-secondary" style="font-size:14px;line-height:1.9">
+        Гимн Королевства — инструментальное музыкальное произведение продолжительностью <strong>3 минуты 22 секунды</strong>. Жанр: lofi, без слов. Исполнение и прослушивание не сопряжено с возложением на граждан дополнительных обязанностей. Во время звучания гимна граждане вправе продолжать свои дела. Принудительное вставание не предусмотрено.
+      </p>
     </div>
 
   </div>
@@ -339,9 +171,9 @@
 <footer class="footer">
   <div class="container">
     <div class="footer-inner">
-      <div class="footer-brand">⚓ Суверенная IT-морская Республика Чиллград</div>
-      <div class="footer-motto">"Не трогай — и всем хорошо"</div>
-      <div class="footer-status">STATUS: IDLE/AFK · UPTIME: 99.97% · CODEX v4.0</div>
+      <div class="footer-brand">⚓ Соединённое Королевство Чиллград</div>
+      <div class="footer-motto">«Беречь наследие, не нарушая покоя»</div>
+      <div class="footer-status">STATUS: IDLE/AFK · UPTIME: 99.97% · КОНСТИТУЦИОННЫЙ АКТ 2026</div>
     </div>
   </div>
 </footer>

@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Бюджет | Чиллград</title>
+  <title>Бюджет | Соединённое Королевство Чиллград</title>
   <link rel="stylesheet" href="style.css">
+  
 </head>
 <body>
-
 <nav class="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
@@ -21,18 +21,16 @@
       <a href="constitution.html" class="nav-link">Конституция</a>
       <a href="doctrines.html" class="nav-link">Доктрины</a>
       <a href="symbols.html" class="nav-link">Символы</a>
-    
       <div class="nav-dropdown">
         <button class="nav-link nav-dropdown-btn">Ещё ▾</button>
         <div class="nav-dropdown-menu">
           <div class="nav-dd-label">Государство</div>
           <a href="history.html" class="nav-dropdown-item"><span class="di">📜</span>История</a>
           <a href="timeline.html" class="nav-dropdown-item"><span class="di">⏱️</span>Хронология</a>
-          <a href="timeline.html" class="nav-dropdown-item"><span class="di">🎖️</span>Вооружение</a>
           <div class="nav-dd-divider"></div>
           <div class="nav-dd-label">Документы</div>
           <a href="economy.html" class="nav-dropdown-item"><span class="di">💰</span>Экономика</a>
-          <a href="budget.html" class="nav-dropdown-item"><span class="di">📊</span>Бюджет</a>
+          <a href="budget.html" class="nav-dropdown-item  active"><span class="di">📊</span>Бюджет</a>
           <div class="nav-dd-divider"></div>
           <div class="nav-dd-label">Право</div>
           <a href="criminal-code.html" class="nav-dropdown-item"><span class="di">⚖️</span>Уголовный кодекс</a>
@@ -41,23 +39,71 @@
           <div class="nav-dd-label">Граждане</div>
           <a href="citizenship.html" class="nav-dropdown-item"><span class="di">🪪</span>Гражданство</a>
           <a href="passport.html" class="nav-dropdown-item"><span class="di">📘</span>Паспорт</a>
-          <a href="registry.html" class="nav-dropdown-item"><span class="di">📋</span>Реестр</a>
+          <a href="registry.html" class="nav-dropdown-item"><span class="di">📋</span>Реестр государств</a>
         </div>
       </div>
     </div>
   </div>
 </nav>
 
+<section class="hero" style="padding:70px 0 60px">
+  <div class="container">
+    <div class="hero-badge">Государственный бюджет · 2026</div>
+    <h1 class="hero-title" style="font-size:clamp(36px,6vw,68px)">Государственный бюджет</h1>
+    <p class="hero-desc" style="margin-bottom:0">Публичная часть бюджета Соединённого Королевства Чиллград на 2026 год.</p>
+  </div>
+</section>
 <section class="section">
   <div class="container">
-    <div class="section-heading">
-      <div class="section-label">// Бюджет</div>
-      <h2 class="section-title">Бюджет Чиллграда</h2>
-      <p class="section-desc">Страница в разработке. Финансовые показатели и план расходов будут опубликованы позже.</p>
+    <div class="section-heading" style="padding-top:0">
+      <div class="section-label">// Доходы</div>
+      <h2 class="section-title" style="font-size:24px">Источники доходов</h2>
     </div>
-    <div class="card">
-      <div class="card-title">В разработке</div>
-      <p class="text-secondary" style="font-size:14px;line-height:1.75">Здесь будут открытые данные о доходах, расходах и структуре государственного бюджета.</p>
+    <div class="card" style="margin-bottom:32px">
+      <table style="width:100%;border-collapse:collapse;font-size:14px">
+        <thead><tr style="border-bottom:1px solid var(--border-mid)">
+          <th style="text-align:left;padding:10px;color:var(--teal);font-family:var(--font-mono);font-size:11px">Статья дохода</th>
+          <th style="text-align:right;padding:10px;color:var(--teal);font-family:var(--font-mono);font-size:11px">Сумма (STL)</th>
+          <th style="text-align:left;padding:10px;color:var(--teal);font-family:var(--font-mono);font-size:11px">Основание</th>
+        </tr></thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px">Хостинг государственных данных</td><td style="padding:10px;text-align:right;font-family:var(--font-mono)">~20 000 000</td><td style="padding:10px;color:var(--text-secondary)">Хаб «Корень», контракты с 4+ партнёрами</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px">Лицензирование навигационного ПО</td><td style="padding:10px;text-align:right;font-family:var(--font-mono)">~12 000 000</td><td style="padding:10px;color:var(--text-secondary)">1 000 STL/судно/месяц, торговые флоты</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px">Транзитный тариф «Чилловый»</td><td style="padding:10px;text-align:right;font-family:var(--font-mono)">~10 000 000</td><td style="padding:10px;color:var(--text-secondary)">СУДС «Штиль-Контроль», 24-мильная зона</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px">Эскроу-смарт-контракты</td><td style="padding:10px;text-align:right;font-family:var(--font-mono)">~5 000 000</td><td style="padding:10px;color:var(--text-secondary)">0,5% комиссия международных сделок</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px">Сбор за дестабилизирующую активность (СДА)</td><td style="padding:10px;text-align:right;font-family:var(--font-mono)">~3 000 000</td><td style="padding:10px;color:var(--text-secondary)">Автоматические начисления МЭА/МВПКДА</td></tr>
+          <tr style="font-weight:600"><td style="padding:10px;color:var(--teal)">ИТОГО (оценка)</td><td style="padding:10px;text-align:right;font-family:var(--font-mono);color:var(--teal)">~50 000 000</td><td style="padding:10px;color:var(--text-secondary)">ВВП ~50 млн STL/год</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-heading">
+      <div class="section-label">// Расходы</div>
+      <h2 class="section-title" style="font-size:24px">Распределение расходов</h2>
+    </div>
+    <div class="card" style="margin-bottom:32px">
+      <table style="width:100%;border-collapse:collapse;font-size:14px">
+        <thead><tr style="border-bottom:1px solid var(--border-mid)">
+          <th style="text-align:left;padding:10px;color:var(--teal);font-family:var(--font-mono);font-size:11px">Статья расходов</th>
+          <th style="text-align:right;padding:10px;color:var(--teal);font-family:var(--font-mono);font-size:11px">Сумма (STL)</th>
+          <th style="text-align:left;padding:10px;color:var(--teal);font-family:var(--font-mono);font-size:11px">Ответственный</th>
+        </tr></thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px">Содержание СУДС и USV (320 чел.)</td><td style="padding:10px;text-align:right;font-family:var(--font-mono)">3 600</td><td style="padding:10px;color:var(--text-secondary)">МТТ</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px">Обслуживание комплекса береговой обороны</td><td style="padding:10px;text-align:right;font-family:var(--font-mono)">2 400</td><td style="padding:10px;color:var(--text-secondary)">СВПК (засекречено)</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px">РЭБ-система и датчики акватории</td><td style="padding:10px;text-align:right;font-family:var(--font-mono)">1 200</td><td style="padding:10px;color:var(--text-secondary)">СВПК</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px">Кибербезопасность и ИТ-инфраструктура</td><td style="padding:10px;text-align:right;font-family:var(--font-mono)">1 800</td><td style="padding:10px;color:var(--text-secondary)">МТЦИ</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px">Территориальное ополчение (резерв, хранение)</td><td style="padding:10px;text-align:right;font-family:var(--font-mono)">500</td><td style="padding:10px;color:var(--text-secondary)">МВПКДА</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px">Дипломатический корпус и МИД</td><td style="padding:10px;text-align:right;font-family:var(--font-mono)">2 000</td><td style="padding:10px;color:var(--text-secondary)">МИД</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px">Зелёные зоны и рекреационная инфраструктура</td><td style="padding:10px;text-align:right;font-family:var(--font-mono)">1 200</td><td style="padding:10px;color:var(--text-secondary)">МВЧ / 40% от СДА</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px">Фонд автоматизации</td><td style="padding:10px;text-align:right;font-family:var(--font-mono)">900</td><td style="padding:10px;color:var(--text-secondary)">МЭА / 30% от СДА</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px">Стратегические резервы</td><td style="padding:10px;text-align:right;font-family:var(--font-mono)">600</td><td style="padding:10px;color:var(--text-secondary)">МСР / 20% от СДА</td></tr>
+          <tr style="font-weight:600"><td style="padding:10px;color:var(--teal)">Оборонный бюджет (публичная часть)</td><td style="padding:10px;text-align:right;font-family:var(--font-mono);color:var(--teal)">9 500</td><td style="padding:10px;color:var(--text-secondary)">~0,38% от ВВП</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="background:rgba(255,69,69,0.04);border:1px solid rgba(255,69,69,0.1);border-radius:var(--radius);padding:16px;font-size:13px;color:var(--text-secondary)">
+      ⚠️ Реальный оборонный бюджет включает засекреченные статьи СВПК, не раскрываемые публично в соответствии со Статьёй 11 Конституционного Акта.
     </div>
   </div>
 </section>
@@ -65,12 +111,11 @@
 <footer class="footer">
   <div class="container">
     <div class="footer-inner">
-      <div class="footer-brand">⚓ Суверенная IT-морская Республика Чиллград</div>
-      <div class="footer-motto">"Не трогай — и всем хорошо"</div>
-      <div class="footer-status">STATUS: IDLE/AFK · UPTIME: 99.97% · CODEX v4.0</div>
+      <div class="footer-brand">⚓ Соединённое Королевство Чиллград</div>
+      <div class="footer-motto">«Беречь наследие, не нарушая покоя»</div>
+      <div class="footer-status">STATUS: IDLE/AFK · UPTIME: 99.97% · КОНСТИТУЦИОННЫЙ АКТ 2026</div>
     </div>
   </div>
 </footer>
-
 </body>
 </html>
