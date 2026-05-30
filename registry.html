@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Реестр государств | Соединённое Королевство Чиллград</title>
   <link rel="stylesheet" href="style.css">
-  
 </head>
 <body>
 <nav class="nav">
@@ -50,59 +49,161 @@
   <div class="container">
     <div class="hero-badge">Дипломатический реестр · МИД Чиллграда</div>
     <h1 class="hero-title" style="font-size:clamp(36px,6vw,68px)">Реестр государств</h1>
-    <p class="hero-desc" style="margin-bottom:0">Актуальный статус международных отношений Соединённого Королевства Чиллград. 13 государств.</p>
+    <p class="hero-desc" style="margin-bottom:0">Актуальный статус международных отношений Соединённого Королевства Чиллград. 11 государств в реестре.</p>
   </div>
 </section>
 <section class="section">
   <div class="container">
-    <div class="stats-row" style="margin-bottom:40px">
-      <div class="stat-card"><div class="stat-value" style="color:var(--teal)">4</div><div class="stat-label">Пактов «Мягкие Лапки»</div></div>
-      <div class="stat-card"><div class="stat-value">2</div><div class="stat-label">Торговых соглашения</div></div>
-      <div class="stat-card"><div class="stat-value">3</div><div class="stat-label">Кандидата на пакт</div></div>
-      <div class="stat-card"><div class="stat-value" style="color:var(--warning)">4</div><div class="stat-label">На мониторинге</div></div>
-    </div>
 
+    
     <div class="section-heading" style="padding-top:0">
-      <div class="section-label">// Статусы</div>
-      <h2 class="section-title" style="font-size:24px">Система статусов реестра</h2>
+      <div class="section-label">// Система статусов</div>
+      <h2 class="section-title" style="font-size:24px">Дипломатические уровни</h2>
     </div>
-    <div class="grid-2" style="margin-bottom:40px">
-      <div class="card" style="border-color:rgba(0,212,170,0.3)"><div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><span class="badge badge-success">A — Высокий</span></div><p class="text-secondary" style="font-size:13px">Подписан Пакт «Мягкие Лапки». Активный дипломатический канал. Скидки на транзит и хостинг.</p></div>
-      <div class="card" style="border-color:rgba(0,212,170,0.2)"><div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><span class="badge badge-neutral">B — Стандартный</span></div><p class="text-secondary" style="font-size:13px">Торговое соглашение или соглашение о нейтральности. Пакт не подписан. Транзит по полному тарифу.</p></div>
-      <div class="card"><div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><span class="badge" style="background:rgba(107,148,186,0.15);color:var(--neutral)">C — Нейтральный</span></div><p class="text-secondary" style="font-size:13px">Дипломатический контакт установлен, соглашений нет. Переговоры в процессе или запланированы.</p></div>
-      <div class="card"><div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><span class="badge" style="background:rgba(245,197,24,0.1);color:var(--warning)">D — Мониторинг</span></div><p class="text-secondary" style="font-size:13px">Ограниченные данные. МИД ведёт наблюдение. Официальный контакт не установлен или прерван.</p></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-bottom:48px">
+      <div class="card" style="border-color:rgba(0,212,170,0.3)">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <span class="badge badge-success" style="font-size:13px;padding:4px 14px">A</span>
+          <strong style="color:var(--text-primary)">Союзник</strong>
+        </div>
+        <p class="text-secondary" style="font-size:13px;line-height:1.8">Подписан Пакт «Мягкие Лапки». Полный дипломатический канал, льготы по транзиту и хостингу.</p>
+      </div>
+      <div class="card" style="border-color:rgba(0,212,170,0.2)">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <span class="badge badge-neutral" style="font-size:13px;padding:4px 14px">B</span>
+          <strong style="color:var(--text-primary)">Партнёр</strong>
+        </div>
+        <p class="text-secondary" style="font-size:13px;line-height:1.8">Торговое соглашение или соглашение о нейтральности. Ограниченное сотрудничество, пакт не подписан.</p>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <span class="badge" style="background:rgba(107,148,186,0.15);color:var(--neutral);font-size:13px;padding:4px 14px">C</span>
+          <strong style="color:var(--text-primary)">Наблюдатель</strong>
+        </div>
+        <p class="text-secondary" style="font-size:13px;line-height:1.8">Контакт установлен, соглашений нет. Переговоры в процессе или запланированы МИД.</p>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <span class="badge" style="background:rgba(245,197,24,0.1);color:var(--warning);font-size:13px;padding:4px 14px">D</span>
+          <strong style="color:var(--text-primary)">Мониторинг</strong>
+        </div>
+        <p class="text-secondary" style="font-size:13px;line-height:1.8">Ограниченные данные, официальный контакт не установлен. СУДС ведёт наблюдение.</p>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <span class="badge" style="background:rgba(255,69,69,0.1);color:var(--danger);font-size:13px;padding:4px 14px">E</span>
+          <strong style="color:var(--text-primary)">Напряжённость</strong>
+        </div>
+        <p class="text-secondary" style="font-size:13px;line-height:1.8">Дипломатический инцидент или конфликт интересов. Протокол МИД активирован.</p>
+      </div>
+      <div class="card" style="border-color:rgba(255,69,69,0.15)">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <span class="badge" style="background:rgba(255,69,69,0.15);color:#ff8888;font-size:13px;padding:4px 14px">—</span>
+          <strong style="color:var(--text-primary)">Нет пакта</strong>
+        </div>
+        <p class="text-secondary" style="font-size:13px;line-height:1.8">Государство в реестре, но ни один пакт «Мягкие Лапки» ещё не подписан.</p>
+      </div>
     </div>
 
     <div class="section-heading">
       <div class="section-label">// Реестр</div>
-      <h2 class="section-title" style="font-size:24px">Все 13 государств</h2>
+      <h2 class="section-title" style="font-size:24px">Все государства</h2>
     </div>
-    <div class="card">
-      <table style="width:100%;border-collapse:collapse;font-size:14px">
-        <thead><tr style="border-bottom:1px solid var(--border-mid)">
-          <th style="text-align:left;padding:10px 12px;color:var(--teal);font-family:var(--font-mono);font-size:11px">#</th>
-          <th style="text-align:left;padding:10px 12px;color:var(--teal);font-family:var(--font-mono);font-size:11px">Государство</th>
-          <th style="text-align:left;padding:10px 12px;color:var(--teal);font-family:var(--font-mono);font-size:11px">Статус</th>
-          <th style="text-align:left;padding:10px 12px;color:var(--teal);font-family:var(--font-mono);font-size:11px">Документ</th>
-          <th style="text-align:left;padding:10px 12px;color:var(--teal);font-family:var(--font-mono);font-size:11px">Дата</th>
-        </tr></thead>
+    <div class="card" style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:14px;min-width:700px">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border-mid)">
+            <th style="text-align:left;padding:10px 14px;color:var(--teal);font-family:var(--font-mono);font-size:11px">#</th>
+            <th style="text-align:left;padding:10px 14px;color:var(--teal);font-family:var(--font-mono);font-size:11px">Государство</th>
+            <th style="text-align:left;padding:10px 14px;color:var(--teal);font-family:var(--font-mono);font-size:11px">Правитель</th>
+            <th style="text-align:left;padding:10px 14px;color:var(--teal);font-family:var(--font-mono);font-size:11px">Контакт</th>
+            <th style="text-align:left;padding:10px 14px;color:var(--teal);font-family:var(--font-mono);font-size:11px">Статус</th>
+            <th style="text-align:left;padding:10px 14px;color:var(--teal);font-family:var(--font-mono);font-size:11px">Примечание</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-muted)">01</td><td style="padding:10px 12px">Аквилония</td><td style="padding:10px 12px"><span class="badge badge-success">A</span></td><td style="padding:10px 12px;font-family:var(--font-mono);font-size:12px;color:var(--text-secondary)">Пакт v2.0 (ЧГ-МЛ-002)</td><td style="padding:10px 12px;color:var(--text-secondary)">23.05.2026</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-muted)">02</td><td style="padding:10px 12px">Фройделандия</td><td style="padding:10px 12px"><span class="badge badge-success">A</span></td><td style="padding:10px 12px;font-family:var(--font-mono);font-size:12px;color:var(--text-secondary)">Пакт v1.0 (ЧГ-МЛ-001)</td><td style="padding:10px 12px;color:var(--text-secondary)">25.05.2026</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-muted)">03</td><td style="padding:10px 12px">Блейсерланд</td><td style="padding:10px 12px"><span class="badge badge-success">A</span></td><td style="padding:10px 12px;font-family:var(--font-mono);font-size:12px;color:var(--text-secondary)">Пакт v3.0 (ЧГ-МЛ-003)</td><td style="padding:10px 12px;color:var(--text-secondary)">26.05.2026</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-muted)">04</td><td style="padding:10px 12px">Королевство Бретонния</td><td style="padding:10px 12px"><span class="badge badge-success">A</span></td><td style="padding:10px 12px;font-family:var(--font-mono);font-size:12px;color:var(--text-secondary)">Пакт v4.0 (ЧГ-МЛ-004)</td><td style="padding:10px 12px;color:var(--text-secondary)">26.05.2026</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-muted)">05</td><td style="padding:10px 12px">Дайтеденек</td><td style="padding:10px 12px"><span class="badge badge-neutral">B</span></td><td style="padding:10px 12px;font-family:var(--font-mono);font-size:12px;color:var(--text-secondary)">Соглашение «Западный Брейк»</td><td style="padding:10px 12px;color:var(--text-secondary)">2022</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-muted)">06</td><td style="padding:10px 12px">Бонниленд</td><td style="padding:10px 12px"><span class="badge badge-neutral">B</span></td><td style="padding:10px 12px;font-family:var(--font-mono);font-size:12px;color:var(--text-secondary)">Соглашение «Северный Штиль»</td><td style="padding:10px 12px;color:var(--text-secondary)">2022</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-muted)">07</td><td style="padding:10px 12px">Арборея</td><td style="padding:10px 12px"><span class="badge" style="background:rgba(107,148,186,0.15);color:var(--neutral)">C</span></td><td style="padding:10px 12px;font-family:var(--font-mono);font-size:12px;color:var(--text-secondary)">Дипломатическая нота</td><td style="padding:10px 12px;color:var(--text-secondary)">2024</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-muted)">08</td><td style="padding:10px 12px">Витания</td><td style="padding:10px 12px"><span class="badge" style="background:rgba(107,148,186,0.15);color:var(--neutral)">C</span></td><td style="padding:10px 12px;font-family:var(--font-mono);font-size:12px;color:var(--text-secondary)">Пакт на ратификации</td><td style="padding:10px 12px;color:var(--text-secondary)">2025</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-muted)">09</td><td style="padding:10px 12px">Королевство Лунный Свет</td><td style="padding:10px 12px"><span class="badge" style="background:rgba(107,148,186,0.15);color:var(--neutral)">C</span></td><td style="padding:10px 12px;font-family:var(--font-mono);font-size:12px;color:var(--text-secondary)">Предварительные переговоры</td><td style="padding:10px 12px;color:var(--text-secondary)">2025</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-muted)">10</td><td style="padding:10px 12px">Византийская Федерация</td><td style="padding:10px 12px"><span class="badge" style="background:rgba(245,197,24,0.1);color:var(--warning)">D</span></td><td style="padding:10px 12px;font-family:var(--font-mono);font-size:12px;color:var(--text-secondary)">Мониторинг (Чёрноморский коридор)</td><td style="padding:10px 12px;color:var(--text-secondary)">2024</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-muted)">11</td><td style="padding:10px 12px">Гахлабат</td><td style="padding:10px 12px"><span class="badge" style="background:rgba(245,197,24,0.1);color:var(--warning)">D</span></td><td style="padding:10px 12px;font-family:var(--font-mono);font-size:12px;color:var(--text-secondary)">Мониторинг (Суэцкий интерес)</td><td style="padding:10px 12px;color:var(--text-secondary)">2025</td></tr>
-          <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-muted)">12</td><td style="padding:10px 12px">Мрое Лселл Топийа</td><td style="padding:10px 12px"><span class="badge" style="background:rgba(245,197,24,0.1);color:var(--warning)">D</span></td><td style="padding:10px 12px;font-family:var(--font-mono);font-size:12px;color:var(--text-secondary)">Запрос МИД (без ответа)</td><td style="padding:10px 12px;color:var(--text-secondary)">2025</td></tr>
-          <tr><td style="padding:10px 12px;color:var(--text-muted)">13</td><td style="padding:10px 12px">Неизвестный актор (вост.)</td><td style="padding:10px 12px"><span class="badge" style="background:rgba(245,197,24,0.1);color:var(--warning)">D</span></td><td style="padding:10px 12px;font-family:var(--font-mono);font-size:12px;color:var(--text-secondary)">Инцидент 2025 (акватория)</td><td style="padding:10px 12px;color:var(--text-secondary)">2025</td></tr>
+          <tr style="background:rgba(0,212,170,0.04);border-bottom:1px solid var(--teal);">
+  <td style="padding:12px 14px;color:var(--text-muted);font-family:var(--font-mono);font-size:11px">01</td>
+  <td style="padding:12px 14px;font-weight:600;color:var(--text-primary)">ЧиллГрад</td>
+  <td style="padding:12px 14px;color:var(--text-secondary)">Кирилл</td>
+  <td style="padding:12px 14px;font-family:var(--font-mono);font-size:12px;color:var(--teal)">@ethon_mils</td>
+  <td style="padding:12px 14px"><span class="badge badge-success">A — Союзник</span></td>
+  <td style="padding:12px 14px;color:var(--text-secondary);font-size:13px">Столица федерации. Суверенное государство постоянного нейтралитета.</td>
+</tr><tr style="border-bottom:1px solid var(--border);">
+  <td style="padding:12px 14px;color:var(--text-muted);font-family:var(--font-mono);font-size:11px">02</td>
+  <td style="padding:12px 14px;font-weight:600;color:var(--text-primary)">Аквилония</td>
+  <td style="padding:12px 14px;color:var(--text-secondary)">Лёша</td>
+  <td style="padding:12px 14px;font-family:var(--font-mono);font-size:12px;color:var(--teal)">@l0_hhh</td>
+  <td style="padding:12px 14px"><span class="badge" style="background:rgba(255,69,69,0.08);color:#ff8888">— Нет пакта</span></td>
+  <td style="padding:12px 14px;color:var(--text-secondary);font-size:13px">Ранее первый подписант пакта. Пакт отозван, статус пересматривается.</td>
+</tr><tr style="border-bottom:1px solid var(--border);">
+  <td style="padding:12px 14px;color:var(--text-muted);font-family:var(--font-mono);font-size:11px">03</td>
+  <td style="padding:12px 14px;font-weight:600;color:var(--text-primary)">Блейсерланд</td>
+  <td style="padding:12px 14px;color:var(--text-secondary)">Сергей</td>
+  <td style="padding:12px 14px;font-family:var(--font-mono);font-size:12px;color:var(--teal)">just me</td>
+  <td style="padding:12px 14px"><span class="badge" style="background:rgba(255,69,69,0.08);color:#ff8888">— Нет пакта</span></td>
+  <td style="padding:12px 14px;color:var(--text-secondary);font-size:13px">Радужная ИИ-Империя. Контакты активны, пакт не заключён.</td>
+</tr><tr style="border-bottom:1px solid var(--border);">
+  <td style="padding:12px 14px;color:var(--text-muted);font-family:var(--font-mono);font-size:11px">04</td>
+  <td style="padding:12px 14px;font-weight:600;color:var(--text-primary)">Бонниленд</td>
+  <td style="padding:12px 14px;color:var(--text-secondary)">Ронни</td>
+  <td style="padding:12px 14px;font-family:var(--font-mono);font-size:12px;color:var(--teal)">@raven_4156</td>
+  <td style="padding:12px 14px"><span class="badge badge-neutral">B — Партнёр</span></td>
+  <td style="padding:12px 14px;color:var(--text-secondary);font-size:13px">Торговое соглашение «Северный Штиль». Инцидент 29.05.2026 — исчерпан.</td>
+</tr><tr style="border-bottom:1px solid var(--border);">
+  <td style="padding:12px 14px;color:var(--text-muted);font-family:var(--font-mono);font-size:11px">05</td>
+  <td style="padding:12px 14px;font-weight:600;color:var(--text-primary)">Byzantine Federation</td>
+  <td style="padding:12px 14px;color:var(--text-secondary)">Бонни</td>
+  <td style="padding:12px 14px;font-family:var(--font-mono);font-size:12px;color:var(--teal)">Лясерра Оракс</td>
+  <td style="padding:12px 14px"><span class="badge" style="background:rgba(245,197,24,0.1);color:var(--warning)">D — Мониторинг</span></td>
+  <td style="padding:12px 14px;color:var(--text-secondary);font-size:13px">Контроль черноморских проливов. Мониторинг СУДС.</td>
+</tr><tr style="border-bottom:1px solid var(--border);">
+  <td style="padding:12px 14px;color:var(--text-muted);font-family:var(--font-mono);font-size:11px">06</td>
+  <td style="padding:12px 14px;font-weight:600;color:var(--text-primary)">Витания</td>
+  <td style="padding:12px 14px;color:var(--text-secondary)">Даник</td>
+  <td style="padding:12px 14px;font-family:var(--font-mono);font-size:12px;color:var(--teal)">@Krempunzhenneradi</td>
+  <td style="padding:12px 14px"><span class="badge" style="background:rgba(107,148,186,0.15);color:var(--neutral)">C — Наблюдатель</span></td>
+  <td style="padding:12px 14px;color:var(--text-secondary);font-size:13px">Финальная стадия переговоров. Пакт ожидает ратификации.</td>
+</tr><tr style="border-bottom:1px solid var(--border);">
+  <td style="padding:12px 14px;color:var(--text-muted);font-family:var(--font-mono);font-size:11px">07</td>
+  <td style="padding:12px 14px;font-weight:600;color:var(--text-primary)">Гахлабат</td>
+  <td style="padding:12px 14px;color:var(--text-secondary)">Толя</td>
+  <td style="padding:12px 14px;font-family:var(--font-mono);font-size:12px;color:var(--teal)">@Detiprotivvolshebnikov</td>
+  <td style="padding:12px 14px"><span class="badge" style="background:rgba(245,197,24,0.1);color:var(--warning)">D — Мониторинг</span></td>
+  <td style="padding:12px 14px;color:var(--text-secondary);font-size:13px">Интерес к Суэцкому коридору. Официальный ответ не получен.</td>
+</tr><tr style="border-bottom:1px solid var(--border);">
+  <td style="padding:12px 14px;color:var(--text-muted);font-family:var(--font-mono);font-size:11px">08</td>
+  <td style="padding:12px 14px;font-weight:600;color:var(--text-primary)">Королевство Бельгика</td>
+  <td style="padding:12px 14px;color:var(--text-secondary)">Стёпа</td>
+  <td style="padding:12px 14px;font-family:var(--font-mono);font-size:12px;color:var(--teal)">@srseree</td>
+  <td style="padding:12px 14px"><span class="badge" style="background:rgba(107,148,186,0.15);color:var(--neutral)">C — Наблюдатель</span></td>
+  <td style="padding:12px 14px;color:var(--text-secondary);font-size:13px">Недавно внесено в реестр. Переговоры на ранней стадии.</td>
+</tr><tr style="border-bottom:1px solid var(--border);">
+  <td style="padding:12px 14px;color:var(--text-muted);font-family:var(--font-mono);font-size:11px">09</td>
+  <td style="padding:12px 14px;font-weight:600;color:var(--text-primary)">Урарту</td>
+  <td style="padding:12px 14px;color:var(--text-secondary)">Давид</td>
+  <td style="padding:12px 14px;font-family:var(--font-mono);font-size:12px;color:var(--teal)">@AcumaNoChi</td>
+  <td style="padding:12px 14px"><span class="badge" style="background:rgba(107,148,186,0.15);color:var(--neutral)">C — Наблюдатель</span></td>
+  <td style="padding:12px 14px;color:var(--text-secondary);font-size:13px">Новый участник реестра. Исторически значимое государство.</td>
+</tr><tr style="border-bottom:1px solid var(--border);">
+  <td style="padding:12px 14px;color:var(--text-muted);font-family:var(--font-mono);font-size:11px">10</td>
+  <td style="padding:12px 14px;font-weight:600;color:var(--text-primary)">Фройделандия</td>
+  <td style="padding:12px 14px;color:var(--text-secondary)">Димя священник</td>
+  <td style="padding:12px 14px;font-family:var(--font-mono);font-size:12px;color:var(--teal)">Dmitrii</td>
+  <td style="padding:12px 14px"><span class="badge" style="background:rgba(255,69,69,0.08);color:#ff8888">— Нет пакта</span></td>
+  <td style="padding:12px 14px;color:var(--text-secondary);font-size:13px">Федеративный Канцлер. Пакт отозван, отношения в рабочем режиме.</td>
+</tr><tr style="border-bottom:1px solid var(--border);">
+  <td style="padding:12px 14px;color:var(--text-muted);font-family:var(--font-mono);font-size:11px">11</td>
+  <td style="padding:12px 14px;font-weight:600;color:var(--text-primary)">Великославянское государство</td>
+  <td style="padding:12px 14px;color:var(--text-secondary)">Саша</td>
+  <td style="padding:12px 14px;font-family:var(--font-mono);font-size:12px;color:var(--teal)">@Glithglw</td>
+  <td style="padding:12px 14px"><span class="badge" style="background:rgba(107,148,186,0.15);color:var(--neutral)">C — Наблюдатель</span></td>
+  <td style="padding:12px 14px;color:var(--text-secondary);font-size:13px">Крупный актор. Переговоры инициированы МИД Чиллграда.</td>
+</tr>
         </tbody>
       </table>
     </div>
+
   </div>
 </section>
 

@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Паспорт | Соединённое Королевство Чиллград</title>
   <link rel="stylesheet" href="style.css">
-  
 </head>
 <body>
 <nav class="nav">
@@ -55,48 +54,89 @@
 </section>
 <section class="section">
   <div class="container">
+
     <div class="section-heading" style="padding-top:0">
-      <div class="section-label">// Описание</div>
-      <h2 class="section-title" style="font-size:24px">Паспорт Чиллграда</h2>
+      <div class="section-label">// Образец</div>
+      <h2 class="section-title" style="font-size:24px">Внешний вид паспорта</h2>
+      <p class="section-desc">Официально утверждённый образец. Используется как эталон при оформлении.</p>
     </div>
-    <div class="grid-2" style="margin-bottom:40px;align-items:start">
-      <div class="card card-glow">
-        <div style="background:linear-gradient(135deg,rgba(0,47,38,0.9),rgba(0,15,30,0.95));border-radius:12px;padding:28px;margin-bottom:20px;border:1px solid rgba(0,212,170,0.3)">
-          <div style="font-family:var(--font-mono);font-size:9px;color:rgba(0,212,170,0.7);letter-spacing:3px;margin-bottom:16px">СОЕДИНЁННОЕ КОРОЛЕВСТВО ЧИЛЛГРАД</div>
-          <div style="font-size:28px;margin-bottom:8px">🐾⚓</div>
-          <div style="font-family:var(--font-display);font-size:20px;color:rgba(0,212,170,0.9)">ПАСПОРТ</div>
-          <div style="font-family:var(--font-mono);font-size:10px;color:rgba(255,255,255,0.4);margin-top:12px">AFK CITY · ChillGrad · STL</div>
+
+    <!-- ОБЛОЖКА -->
+    <div class="card" style="margin-bottom:40px">
+      <div style="font-family:var(--font-mono);font-size:11px;color:var(--teal);letter-spacing:2px;margin-bottom:20px">ОБРАЗЕЦ 01 — ОБЛОЖКА ПАСПОРТА</div>
+      <div class="grid-2" style="align-items:start;gap:28px">
+        <div style="text-align:center">
+          <img src="assets/passport_cover.png" alt="Обложка паспорта Чиллграда"
+               style="max-width:100%;max-height:520px;border-radius:var(--radius);border:1px solid var(--border-mid);box-shadow:0 8px 32px rgba(0,0,0,0.4)">
         </div>
-        <p class="text-secondary" style="font-size:13px">Формат: двуязычный (рус. / англ.), брошюра 32 страницы. Обложка: тёмно-зелёная с государственной эмблемой. NFC-чип — шифрование «Дрейф-256».</p>
+        <div>
+          <div class="card-title" style="margin-bottom:16px">Описание обложки</div>
+          <p class="text-secondary" style="font-size:14px;line-height:1.9;margin-bottom:14px">Обложка выполнена из плотного материала тёмно-зелёного цвета с текстурой под кожу и прошивкой по периметру. Все надписи и элементы — <strong>золотое тиснение</strong>.</p>
+          <ul style="color:var(--text-secondary);font-size:14px;line-height:2.2;margin-left:18px">
+            <li><strong style="color:var(--text-primary)">Верх:</strong> «СОЕДИНЁННОЕ КОРОЛЕВСТВО ЧИЛЛГРАД» / «UNITED KINGDOM OF CHILLGRAD»</li>
+            <li><strong style="color:var(--text-primary)">Центр:</strong> Геральдический щит с ноутбуком. Секторы: якорь (синий) · консоль <code style="font-size:12px">&gt; ./chill.sh</code> (чёрный) · лапа (серый) · чай+Wi-Fi (белый). Девиз: «БЕРЕЧЬ НАСЛЕДИЕ, НЕ НАРУШАЯ ПОКОЯ».</li>
+            <li><strong style="color:var(--text-primary)">Низ:</strong> «ПАСПОРТ / PASSPORT»</li>
+            <li><strong style="color:var(--text-primary)">Угол:</strong> значок NFC/RFID · шифрование «ДРЕЙФ-256»</li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <div class="card" style="margin-bottom:16px">
-          <div class="card-title">Страница данных</div>
-          <p class="text-secondary" style="font-size:14px;line-height:1.9">Имя/псевдоним · Гражданский хэш (SHA-256) · Уровень доступа к госресурсам · Коэффициент доступности · Фото/аватар (на выбор гражданина)</p>
+    </div>
+
+    <!-- РАЗВОРОТ -->
+    <div class="card" style="margin-bottom:40px">
+      <div style="font-family:var(--font-mono);font-size:11px;color:var(--teal);letter-spacing:2px;margin-bottom:20px">ОБРАЗЕЦ 02 — РАЗВОРОТ ПАСПОРТА (ЗАПОЛНЕННЫЙ ПРИМЕР)</div>
+      <div style="text-align:center;margin-bottom:24px">
+        <img src="assets/passport_page.png" alt="Разворот паспорта Чиллграда — пример заполнения"
+             style="max-width:100%;border-radius:var(--radius);border:1px solid var(--border-mid);box-shadow:0 8px 32px rgba(0,0,0,0.4)">
+      </div>
+      <div class="grid-2" style="gap:24px">
+        <div>
+          <div class="card-title" style="margin-bottom:12px">Левая страница — личные данные</div>
+          <p class="text-secondary" style="font-size:13px;margin-bottom:10px">Страницы выполнены в зеленовато-защитных тонах с гильоширными узорами и водяными знаками.</p>
+          <table style="width:100%;border-collapse:collapse;font-size:13px">
+            <tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 8px;color:var(--teal);font-family:var(--font-mono);font-size:10px">ФАМИЛИЯ</td><td style="padding:6px 8px;color:var(--text-secondary)">Королёв / Korolyov</td></tr>
+            <tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 8px;color:var(--teal);font-family:var(--font-mono);font-size:10px">ИМЯ</td><td style="padding:6px 8px;color:var(--text-secondary)">Артём / Artyom</td></tr>
+            <tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 8px;color:var(--teal);font-family:var(--font-mono);font-size:10px">ГРАЖДАНСТВО</td><td style="padding:6px 8px;color:var(--text-secondary)">Чиллград / Chillgrad</td></tr>
+            <tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 8px;color:var(--teal);font-family:var(--font-mono);font-size:10px">ДАТА РОЖДЕНИЯ</td><td style="padding:6px 8px;color:var(--text-secondary)">14 MAP 1991</td></tr>
+            <tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 8px;color:var(--teal);font-family:var(--font-mono);font-size:10px">МЕСТО РОЖДЕНИЯ</td><td style="padding:6px 8px;color:var(--text-secondary)">Северный Порт / Severny Port</td></tr>
+            <tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 8px;color:var(--teal);font-family:var(--font-mono);font-size:10px">№ ПАСПОРТА</td><td style="padding:6px 8px;color:var(--text-secondary)">CGD 4827 91A</td></tr>
+            <tr style="border-bottom:1px solid var(--border)"><td style="padding:6px 8px;color:var(--teal);font-family:var(--font-mono);font-size:10px">ВЫДАН</td><td style="padding:6px 8px;color:var(--text-secondary)">22 АПР 2024 — МВПКДА</td></tr>
+            <tr><td style="padding:6px 8px;color:var(--teal);font-family:var(--font-mono);font-size:10px">ДЕЙСТВИТЕЛЕН ДО</td><td style="padding:6px 8px;color:var(--text-secondary)">22 АПР 2034</td></tr>
+          </table>
         </div>
-        <div class="card" style="margin-bottom:16px">
-          <div class="card-title">Страница нейтралитета</div>
-          <p class="text-secondary" style="font-size:14px;line-height:1.9">«Владелец данного документа является гражданином государства постоянного нейтралитета. Просьба обеспечить свободный и невоенизированный проход.»</p>
-        </div>
-        <div class="card">
-          <div class="card-title">Экстренные данные</div>
-          <p class="text-secondary" style="font-size:14px;line-height:1.9">QR-код для верификации через СУДС · Контакт дежурного МИД · Инструкция: «Если владелец в АФК — не тревожьте, он вернётся.»</p>
+        <div>
+          <div class="card-title" style="margin-bottom:12px">Правая страница — геральдическая</div>
+          <p class="text-secondary" style="font-size:13px;line-height:1.9">Монохромный герб (ноутбук + щит + девиз). Официальная надпись: <em>«Паспорт является собственностью Соединённого Королевства Чиллград»</em>. Внизу — гравюра с парусными кораблями и якорем.</p>
+          <div style="background:rgba(0,212,170,0.06);border:1px solid rgba(0,212,170,0.15);border-radius:8px;padding:14px;margin-top:16px">
+            <p style="font-size:12px;color:var(--teal);font-family:var(--font-mono);margin-bottom:6px">ПРИМЕЧАНИЕ</p>
+            <p class="text-secondary" style="font-size:13px">Данные на образце являются вымышленными и приведены исключительно в демонстрационных целях.</p>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="section-heading">
-      <div class="section-label">// Получение</div>
-      <h2 class="section-title" style="font-size:24px">Порядок получения паспорта</h2>
+      <div class="section-label">// Технические характеристики</div>
+      <h2 class="section-title" style="font-size:24px">Параметры паспорта</h2>
     </div>
-    <div class="card">
-      <div style="display:flex;flex-direction:column;gap:14px">
-        <div style="border-left:3px solid var(--teal);padding-left:14px"><strong>1.</strong> <span class="text-secondary" style="font-size:14px">Подача заявки через систему МВПКДА (онлайн или в офисе АФК-Сити)</span></div>
-        <div style="border-left:3px solid var(--teal);padding-left:14px"><strong>2.</strong> <span class="text-secondary" style="font-size:14px">Верификация гражданского хэша по блокчейн-реестру</span></div>
-        <div style="border-left:3px solid var(--teal);padding-left:14px"><strong>3.</strong> <span class="text-secondary" style="font-size:14px">Оплата государственной пошлины: 10 STL (разово)</span></div>
-        <div style="border-left:3px solid var(--teal);padding-left:14px"><strong>4.</strong> <span class="text-secondary" style="font-size:14px">Изготовление в течение 7 рабочих дней. Срок действия: 10 лет.</span></div>
+    <div class="card" style="margin-bottom:32px">
+      <div class="grid-2" style="gap:20px">
+        <div>
+          <div class="card-title" style="font-size:15px;margin-bottom:10px">Физические параметры</div>
+          <p class="text-secondary" style="font-size:14px;line-height:1.9">Формат: брошюра 32 страницы. Обложка тёмно-зелёная. Внутренние страницы: защитная печать, гильоширные узоры, водяные знаки.<br>NFC-чип: шифрование «Дрейф-256».</p>
+        </div>
+        <div>
+          <div class="card-title" style="font-size:15px;margin-bottom:10px">Порядок получения</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="border-left:3px solid var(--teal);padding-left:12px"><span class="text-secondary" style="font-size:13px"><strong>1.</strong> Заявка в МВПКДА (онлайн или лично в АФК-Сити)</span></div>
+            <div style="border-left:3px solid var(--teal);padding-left:12px"><span class="text-secondary" style="font-size:13px"><strong>2.</strong> Верификация гражданского хэша (SHA-256)</span></div>
+            <div style="border-left:3px solid var(--teal);padding-left:12px"><span class="text-secondary" style="font-size:13px"><strong>3.</strong> Пошлина: 10 STL (разово)</span></div>
+            <div style="border-left:3px solid var(--teal);padding-left:12px"><span class="text-secondary" style="font-size:13px"><strong>4.</strong> Изготовление 7 рабочих дней. Срок действия: 10 лет.</span></div>
+          </div>
+        </div>
       </div>
     </div>
+
   </div>
 </section>
 
